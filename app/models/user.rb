@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :offers
   has_many :messages
   has_many :pictures, as: :imageable
+
 end
