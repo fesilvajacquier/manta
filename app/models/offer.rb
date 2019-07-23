@@ -3,4 +3,5 @@ class Offer < ApplicationRecord
   belongs_to :publication
   has_many :messages
   has_many :pictures, as: :imageable
+  validates :user_id, :publication_id, presence: true
 end
