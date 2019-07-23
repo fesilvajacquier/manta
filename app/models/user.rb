@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :ngos
   has_many :reports
-  has_many :ngo_members
+  has_many :ngo_members, dependent: :destroy
   has_many :offers
   has_many :messages
   has_many :pictures, as: :imageable
