@@ -6,8 +6,7 @@ class NgosController < ApplicationController
   end
 
   def new
-    @ngo = NGO.new
-    authorize @ngo
+    @ngo = Ngo.new
   end
 
   def create
