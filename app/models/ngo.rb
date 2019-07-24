@@ -7,7 +7,9 @@ class Ngo < ApplicationRecord
   has_many :users, through: :ngo_members
   has_many :pictures, as: :imageable, dependent: :destroy
   validates :name, :address, :email, :website, :description, :bank_account, :user_id, presence: true
-  
-  validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/}
-  validates :website, format: { with: /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/ }
+
+  accepts_nested_attributes_for :pictures
+
+  validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
+  validates :website, format: { with: %r{[(http(s)?)://(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)} }
 end
