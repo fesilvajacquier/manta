@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-<<<<<<< HEAD
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-=======
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   resources :ngos, only: %i[show new create]
-
   resources :publications, only: %i[index show] do
     resources :offers, only: %i[create]
   end
@@ -23,5 +19,4 @@ Rails.application.routes.draw do
       resources :ngo_members, only: %i[create destroy]
     end
   end
->>>>>>> master
 end
