@@ -3,6 +3,7 @@ class NgosController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show]
 
   def show
+    @report = Report.new
   end
 
   def new
