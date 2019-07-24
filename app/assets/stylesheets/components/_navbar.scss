@@ -10,3 +10,28 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.search-navbar > input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: #e9ecef;
+}
+
+.search-navbar > input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: #e9ecef;
+}
+
+.search-navbar {
+  padding: 3px 18px;
+  background-color: #e9ecef;
+  border-radius: 50px;
+}
+
+.search-navbar > i {
+  position: relative;
+  top: 3px;
+}
