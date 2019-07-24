@@ -5,7 +5,7 @@
  <%= f.input :email, label: "My email", placeholder: "info@charitywater.org" %>
  <%= f.input :website, label: "My NGO website", placeholder: "https://www.charitywater.org/" %>
  <%= f.input :description, label: "My NGO description", placeholder: "charity: water is a nonprofit organization bringing clean and safe drinking water to people in developing countries." %>
- <%= f.simple_fields_for :pictures do |pictures_form| %>
+ <%= f.simple_fields_for :pictures, @picture do |pictures_form| %>
    <%= pictures_form.input :picture %>
    <%= pictures_form.input :picture_cache, as: :hidden %>
  <% end %>
