@@ -3,19 +3,20 @@
   <div class="row">
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card" style = "background-color: #F2D388" >
+        <%= image_tag "donate", alt: "whatever" %>
         <h2> money</h2>
       </div>
     </div>
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card" style = "background-color: #A7D2CB">
         <h2> money</h2>
       </div>
     </div>
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card" style = "background-color: #C98474">
         <h2> money</h2>
       </div>
     </div>
@@ -24,54 +25,16 @@
   <h2>Category</h2>
     <div class="row">
 
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
+    <% 12.times do %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+        <%= link_to root_path, class:"card-category" do %>
+          <div class="card-small">
+            <i class="fab fa-500px"></i>
+            <h2> money</h2>
+          </div>
+        <% end %>
       </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-     <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-      <div class="card-small">
-        <h2> money</h2>
-      </div>
-    </div>
-
+    <% end %>
   </div>
 </div>
 
