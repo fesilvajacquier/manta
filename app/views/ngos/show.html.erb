@@ -1,0 +1,18 @@
+<div class="ngo-wrapper">
+  <div class="ngo-title-wrapper">
+    <div class="ngo-title">
+      <h1><%=@ngo.name%></h1>
+      <p>Location: <%=@ngo.address%> </p>
+      <div class="share-button">
+      </div>
+    </div>
+  </div>
+  <div class="ngo-info">
+    <p>About us</p>
+    <p> <%=@ngo.description%> </p>
+  </div>
+  <div class="geocoder">
+  </div>
+  <div class="ngo-picture style="background-image: url('<%= cl_image_path @ngo.picture, crop: :fill %>')">
+  </div>
+</div>
