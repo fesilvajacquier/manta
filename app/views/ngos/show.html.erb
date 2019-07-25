@@ -1,7 +1,11 @@
+
 <div class="ngo-wrapper">
   <div class="ngo-title-wrapper">
     <div class="ngo-title">
       <h1><%=@ngo.name%></h1>
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#reportModal">
+      Report this NGO
+    </button> 
       <p>Location: <%=@ngo.address%> </p>
       <div class="button space-btw-button">
       </div>
@@ -15,3 +19,5 @@
   </div>
   </div>
 </div>
+
+<%= render 'report_form' %>
