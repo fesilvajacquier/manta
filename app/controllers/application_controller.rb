@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
     )
     render json: response
   end
+  
   include Pundit
 
   # Pundit: white-list approach.

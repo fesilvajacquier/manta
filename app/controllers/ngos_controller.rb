@@ -3,6 +3,14 @@ class NgosController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show]
 
   def show
+    @ngos = Ngo.geocoded # returns flats with coordinates
+
+    @markers = @ngos.map do |ngo|
+      {
+        lat: ngo.latitude,
+        lng: ngo.longitude
+      }
+    end
   end
 
   def new
