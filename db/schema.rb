@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_013622) do
+ActiveRecord::Schema.define(version: 2019_07_24_190542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_013622) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_ngos_on_user_id"
   end
 
@@ -57,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_07_25_013622) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.string "photo"
+    t.string "picture"
     t.integer "imageable_id"
     t.string "imageable_type"
     t.datetime "created_at", null: false
@@ -75,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_07_25_013622) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["ngo_id"], name: "index_publications_on_ngo_id"
   end
 
@@ -96,6 +100,12 @@ ActiveRecord::Schema.define(version: 2019_07_25_013622) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "token"
+    t.integer "expires_at"
+    t.boolean "expires"
+    t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

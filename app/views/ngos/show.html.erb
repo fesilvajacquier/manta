@@ -1,13 +1,22 @@
-<div class="container pt-5">
-  <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-9 col-lg-6">
-      <h2 class='text-center'><%= @ngo.name %></h2>
-      <%= link_to  "Report this ngo",reports_path, class:"btn btn-danger"%>
-    <%# <%= link_to "New cocktail", new_cocktail_path, class: "btn btn-outline-dark", form: {'data-toggle'=> "modal", 'data-target' => "#reportModal"}%>
-  <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#reportModal">
-  Report this NGO
-</button> 
+
+<div class="ngo-wrapper">
+  <div class="ngo-title-wrapper">
+    <div class="ngo-title">
+      <h1><%=@ngo.name%></h1>
+      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#reportModal">
+      Report this NGO
+    </button> 
+      <p>Location: <%=@ngo.address%> </p>
+      <div class="button space-btw-button">
+      </div>
     </div>
+  </div>
+  <div class="ngo-info">
+    <p>About us</p>
+    <p> <%=@ngo.description%> </p>
+  </div>
+  <div class="geocoder">
+  </div>
   </div>
 </div>
 

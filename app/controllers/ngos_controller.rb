@@ -4,6 +4,14 @@ class NgosController < ApplicationController
 
   def show
     @report = Report.new
+    @ngos = Ngo.geocoded # returns flats with coordinates
+
+    @markers = @ngos.map do |ngo|
+      {
+        lat: ngo.latitude,
+        lng: ngo.longitude
+      }
+    end
   end
 
   def new
