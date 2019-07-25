@@ -3,19 +3,18 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-    @report.user = current_user
     authorize @report
     if @report.save
-      # redirect_to report_path(@report)
-    else
-      # render :new
+      # raise
+      # flash[:notice] = "Report created succesfully"
     end
   end
+
 
   private
 
   def report_params
-    params.require(:report).permit(:category, :content, :ngo_id)
+    params.require(:report).permit(:phone_number, :category, :content, :ngo_id)
   end
 
 end
