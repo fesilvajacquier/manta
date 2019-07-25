@@ -14,4 +14,10 @@ class Ngo < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_address
   accepts_nested_attributes_for :pictures
 
+  include PgSearch
+  pg_search_scope :search_ngos,
+    against: [ :name, :description, :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
