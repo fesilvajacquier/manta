@@ -8,11 +8,4 @@ class Publication < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_address?
   # TODO: add category validation
   # TODO add sub_category validation
-  include PgSearch
-
-  pg_search_scope :search_publications,
-    against: [ :title, :description, :location ],
-    using: {
-      tsearch: { prefix: true }
-    }
 end
