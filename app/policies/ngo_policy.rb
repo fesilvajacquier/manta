@@ -5,6 +5,10 @@ class NgoPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    true
+  end
+
   def show?
     true
   end
