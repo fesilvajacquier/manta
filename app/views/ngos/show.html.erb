@@ -5,7 +5,7 @@
       <h1><%=@ngo.name%></h1>
       <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#reportModal">
       Report this NGO
-    </button> 
+    </button>
       <p>Location: <%=@ngo.address%> </p>
       <div class="button space-btw-button">
       </div>
@@ -21,3 +21,5 @@
 </div>
 
 <%= render 'report_form' %>
+
+<%= cl_image_tag @ngo.pictures.first.picture %>
