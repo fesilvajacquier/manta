@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-4">
+      <div style="width: 300px; height: 365px; border: 2px black solid;">
+        Carrousel placeholder
+      </div>
+      <div style="width: 300px; height: 200px; border: 2px black solid;">
+        Map placeholder
+      </div>
+    </div>
+    <div class="col-sm-12 col-8">
+      <div class="d-flex justify-content-around">
+        <h2> <%= @publication.title %> </h2>
+        <a href="#" class="btn btn-success">Share on SM</a>
+      </div>
+      <span>posted by <strong><%= link_to @publication.ngo.name, ngo_path(@publication.ngo)  %></strong></span>
+      <span><strong>Location: <%= @publication.location %></strong></span>
+      <h3 class="sub-header">Description</h3>
+      <p>
+        <%= @publication.description %>
+      </p>
+      <h3 class="sub-header">Intended use</h3>
+      <p>
+        <%= @publication.description %>
+      </p>
+      <h3 class="sub-header">Main focus</h3>
+      <p>
+        Main focus place holder
+      </p>
+    </div>
+  </div>
+</div>
