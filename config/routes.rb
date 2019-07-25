@@ -19,4 +19,6 @@ Rails.application.routes.draw do
       resources :ngo_members, only: %i[create destroy]
     end
   end
+
+  resources :pictures
 end

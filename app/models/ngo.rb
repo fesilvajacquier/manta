@@ -19,4 +19,7 @@ class Ngo < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  # after_validation :geocode, if: :will_save_change_to_address
+  accepts_nested_attributes_for :pictures
+
 end
