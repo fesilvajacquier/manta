@@ -11,13 +11,13 @@ class Ngo < ApplicationRecord
   validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   validates :website, format: { with: %r{[(http(s)?)://(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)} }
   geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address
+  after_validation :geocode, if: :will_save_change_to_address?
   accepts_nested_attributes_for :pictures
 
   include PgSearch
   pg_search_scope :search_ngos,
-    against: [ :name, :description, :address ],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: %i[name description address],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
