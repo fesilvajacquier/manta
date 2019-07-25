@@ -1,25 +1,31 @@
-
-<div class="ngo-wrapper">
-  <div class="ngo-title-wrapper">
-    <div class="ngo-title">
-      <h1><%=@ngo.name%></h1>
-      <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#reportModal">
-      Report this NGO
-    </button>
-      <p>Location: <%=@ngo.address%> </p>
-      <div class="button space-btw-button">
+<div class="container">
+    <div class="row mx-1 my-1 d-flex justify-content-center">
+      <div class="col-sm-12 col-md-6 my-1 p-1 new-ngo-wrapper">
+        <div class="ngo-title-wrapper">
+          <div class="ngo-title">
+            <h1><%=@ngo.name%></h1>
+            <h5><strong>Location:</strong> <%=@ngo.address%></h4>
+          </div>
+          <div class="share-button">
+            <button type="button" class="button space-btw-button" name="SHARE">
+              SHARE
+            </button>
+          </div>
+         </div>
+        <div class="ngo-info">
+          <h5><strong>About us</strong></h5>
+          <p> <%=@ngo.description%> </p>
+        </div>
+        <div class="geocoder">
+        </div>
+        <div class="ngo-pic" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ngo.pictures.first.picture, crop: :fill %>');">
+        </div>
+        <div class="report-ngo-button">
+          <button type="button" class="button space-btw-button" data-toggle="modal" data-target="#reportModal">
+            Report this NGO
+          </button>
+          <%= render 'report_form' %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="ngo-info">
-    <p>About us</p>
-    <p> <%=@ngo.description%> </p>
-  </div>
-  <div class="geocoder">
-  </div>
-  </div>
 </div>
-
-<%= render 'report_form' %>
-
-<%= cl_image_tag @ngo.pictures.first.picture %>
