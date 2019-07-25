@@ -19,9 +19,9 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pg_search'
 
 gem 'pundit'
-
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 
