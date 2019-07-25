@@ -1,0 +1,21 @@
+.button{
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 5px 17px;
+  border-radius: 51px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+} :hover {
+  opacity: 2;
+   // font-weight: bold;
+ } a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.space-btw-button {
+  font-size: 20px;
+  margin: 9px 7px;
+  padding: 4px 15px;
+}
