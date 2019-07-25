@@ -25,6 +25,7 @@ gem 'pundit'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 
+gem 'jquery-rails'
 gem 'social-share-button'
 
 group :development do
