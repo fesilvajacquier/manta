@@ -11,7 +11,8 @@
     <div class="col-sm-12 col-md-8 py-4">
       <div class="d-flex justify-content-between pb-3">
         <h2> <%= @publication.title %> </h2>
-        <a href="#" class="btn btn-success">Share on SM</a>
+        <%= social_share_button_tag(@publication.title, desc: @publication.description) %>
+        <%# <a href="#" class="btn btn-success">Share on SM</a> %>
       </div>
       <p>posted by <strong><%= link_to @publication.ngo.name, ngo_path(@publication.ngo)  %></strong></p>
       <p><strong>Location: <%= @publication.location %></strong></p>
