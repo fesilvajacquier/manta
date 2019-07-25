@@ -17,7 +17,6 @@ class User < ApplicationRecord
     end
   end
   has_many :ngos
-  has_many :reports
   has_many :ngo_members, dependent: :destroy
   has_many :offers
   has_many :messages

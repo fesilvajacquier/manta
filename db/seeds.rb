@@ -40,7 +40,7 @@ NgoMember.create!(ngo: manta_ngo, user: pin)
 
 # report
 puts 'creating reports'
-Report.create!(ngo: manta_ngo, user: fer, category: 'something', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
+Report.create!(ngo: manta_ngo, phone_number: '123234234', category: 'something', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
 
 # publication
 puts 'creating publications'
