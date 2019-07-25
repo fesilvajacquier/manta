@@ -7,8 +7,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <form class="form-inline d-none d-md-block mr-auto" action="#">
+  <form id="search-form" class="form-inline d-none d-md-block mr-auto" action="/publications">
     <div class="search-navbar">
+
+      <select id="search-categories">
+        <option value="ngos">NGOs</option>
+        <option value="publications" selected>Publications</option>
+      </select>
+
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Try xyz" aria-label="Search">
       <i class="fas fa-search"></i>
     </div>

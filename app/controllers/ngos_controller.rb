@@ -2,6 +2,20 @@ class NgosController < ApplicationController
   before_action :set_ngo, only: %i[show]
   skip_before_action :authenticate_user!, only: %i[show]
 
+  def index
+    if params[:search].present?
+      @ngos = policy_scope(Ngo).search_ngos(params[:search])
+    else
+      @ngos = policy_scope(Ngo).geocoded # returns flats with coordinates
+      @markers = @ngos.map do |ngo|
+        {
+          lat: ngo.latitude,
+          lng: ngo.longitude
+        }
+      end
+    end
+  end
+
   def show
     @report = Report.new
     @ngos = Ngo.geocoded # returns flats with coordinates
