@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
+  after_create :send_welcome_email
   has_many :ngos
   has_many :reports
   has_many :ngo_members, dependent: :destroy
@@ -18,7 +19,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
-      user.refresh_token = auth.credentials.refresh_token
+      # user.refresh_token = auth.credentials.refresh_token
       user.password = SecureRandom.urlsafe_base64
     end
   end
@@ -30,5 +31,11 @@ class User < ApplicationRecord
     else
       return "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg"
     end
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
   end
 end
