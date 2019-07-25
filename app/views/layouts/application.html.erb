@@ -3,10 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Manta</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <% if content_for?(:meta_og) %>
+          <%= yield :meta_og %>
+        <% else %>
+          <meta property="og:title" content="Manta" />
+          <meta property="og:type" content="website" />
+          <%# TODO add manta url %>
+          <%# <meta property="og:url" content="https://www.iedamarcondes.com" /> %>
+    <% end %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
