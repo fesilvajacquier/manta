@@ -22,7 +22,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-<<<<<<< HEAD
 
   def avatar
     if token.present?
@@ -32,11 +31,4 @@ class User < ApplicationRecord
       return "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg"
     end
   end
-=======
-  has_many :ngos
-  has_many :ngo_members, dependent: :destroy
-  has_many :offers
-  has_many :messages
-  has_many :pictures, as: :imageable
->>>>>>> master
 end

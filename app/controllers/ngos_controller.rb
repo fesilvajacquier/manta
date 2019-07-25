@@ -35,10 +35,6 @@ class NgosController < ApplicationController
   private
 
   def ngo_params
-<<<<<<< HEAD
-    params.require(:ngo).permit(:name, :address, :email, :website,
-                                :description, :bank_account, :user_id, :created_at, :updated_at)
-=======
     params.require(:ngo).permit(
       :name,
       :address,
@@ -55,7 +51,6 @@ class NgosController < ApplicationController
         imageable_type
       ]
     )
->>>>>>> master
   end
 
   def set_ngo
