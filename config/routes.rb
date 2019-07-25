@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :ngos, only: %i[index show new create]
-  resources :publications, only: %i[index show] do
-    resources :offers, only: %i[create]
-  end
+  resources :publications, only: %i[index show]
+  get '/publications/:publication_id/create_offer', to: 'offers#create_offer', as: :create_offer
 
   resources :offers, only: %i[index update] do
     resources :messages, only: %i[create]
