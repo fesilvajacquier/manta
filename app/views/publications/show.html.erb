@@ -1,0 +1,56 @@
+<%= content_for(:meta_og) do %>
+  <meta property="og:title" content="<%= @publication.title %>" />
+  <meta property="og:type" content="article" />
+  <%# <meta property="og:published_time" content="<%= @publication.publication_date.strftime('%Y-%m-%d %H:%M') %>" /> %>
+  <%# TODO add manta web as author %>
+  <%# <meta property="og:author" content="https://www.facebook.com/iedamarcondes" /> %>
+  <meta property="og:description" content="<%= truncate(@publication.description, length: 50) %>" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <% if @publication.ngo.pictures.first.present? %>
+      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(@publication.ngo.pictures.first.photo)}" %>
+      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(@publication.ngo.pictures.first.photo)}" %>
+  <% end %>
+  <meta name="twitter:card" content="summary_large_image">
+  <%# TODO add manta web %>
+  <%# <meta name="twitter:site" content="iedamarcondes.com"> %>
+  <%# TODO add twitter account %>
+  <%# <meta name="twitter:creator" content="@iedamarcondes"> %>
+  <meta name="twitter:title" content="<%= @publication.title %>" />
+  <meta name="twitter:site" content="<%= @publication.ngo.name %>" />
+  <meta name="twitter:description" content="<%= truncate(@publication.description, length: 100) %>" />
+<% end %>
+
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+      <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
+        Carrousel placeholder
+      </div>
+      <div style="width: 300px; height: 200px; border: 2px black solid;">
+        Map placeholder
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 py-4">
+      <div class="d-flex justify-content-between align-items-center pb-3">
+        <h2> <%= @publication.title %> </h2>
+        <%= social_share_button_tag(@publication.title, desc: @publication.description) %>
+        <%# <a href="#" class="btn btn-success">Share on SM</a> %>
+      </div>
+      <p>posted by <strong><%= link_to @publication.ngo.name, ngo_path(@publication.ngo)  %></strong></p>
+      <p><strong>Location: <%= @publication.location %></strong></p>
+      <h3 class="sub-header">Description</h3>
+      <p class="pb-3">
+        <%= @publication.description %>
+      </p>
+      <h3 class="sub-header">Intended use</h3>
+      <p class="pb-3">
+        <%= @publication.intended_use %>
+      </p>
+      <h3 class="sub-header">Main focus</h3>
+      <p class="pb-3">
+        Main focus place holder
+      </p>
+    </div>
+  </div>
+</div>

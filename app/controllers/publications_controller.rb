@@ -1,5 +1,6 @@
 class PublicationsController < ApplicationController
-  skip_before_action :authenticate_user!
+  before_action :set_publication, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[show]
 
   def index
     if params[:search].present?
@@ -21,5 +22,15 @@ class PublicationsController < ApplicationController
           }
       end
     end
+  end
+
+  def show
+  end
+
+  private
+
+  def set_publication
+    @publication = Publication.find(params[:id])
+    authorize @publication
   end
 end
