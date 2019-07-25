@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
   <%= image_tag "manta" %>
 <% end %>
 
@@ -7,17 +7,23 @@
   <span class="navbar-toggler-icon"></span>
 </button>
 
-<form class="form-inline d-none d-md-block mr-auto" action="#">
-  <div class="search-navbar">
-    <input class="form-control mr-sm-2" type="text" name="search" placeholder="Try xyz" aria-label="Search">
-    <i class="fas fa-search"></i>
-  </div>
-</form>
+  <form id="search-form" class="form-inline d-none d-md-block mr-auto" action="/publications">
+    <div class="search-navbar">
+
+      <select id="search-categories">
+        <option value="ngos">NGOs</option>
+        <option value="publications" selected>Publications</option>
+      </select>
+
+      <input class="form-control mr-sm-2" type="text" name="search" placeholder="Try xyz" aria-label="Search">
+      <i class="fas fa-search"></i>
+    </div>
+  </form>
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-      <%= link_to "Add NGO", "#", class: "nav-link mr-5" %>
+      <%= link_to "Add NGO", new_ngo_path, class: "nav-link mr-5" %>
     </li>
     <li class="nav-item dropdown">
       <% if signed_in? %>
