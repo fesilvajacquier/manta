@@ -150,7 +150,7 @@ NgoMember.create!(ngo: save_children, user: sebas)
 
 # report
 puts 'creating reports'
-Report.create!(ngo: manta_ngo, phone_number: '123234234', category: 'something', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
+Report.create!(ngo: manta_ngo, phone_number: '123234234', category: 'Scam', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
 
 # publication
 puts 'creating publications'
