@@ -1,6 +1,10 @@
 class Ngo < ApplicationRecord
   belongs_to :user
+  
   has_many :publications, dependent: :destroy
+  has_many :publications_as_owner, dependent: :destroy
+  has_many :publications_as_collaborator, dependent: :destroy
+
   has_many :offers, through: :publications
   has_many :reports, dependent: :destroy
   has_many :ngo_members, dependent: :destroy

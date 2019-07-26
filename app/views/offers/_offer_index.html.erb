@@ -1,0 +1,20 @@
+<div class="offer_index">
+<% @offers.sele %>
+<% @offers.each do |offer| %>
+    <div class="offer_tab p-3 d-flex justify-content-between align-items-center">
+      <div class="offer_img">
+      </div>
+      <div class="offer_detail">
+        <% if current_user == offer.user %>
+          <h3><%= offer.publication.ngo.name %></h3>
+        <% else %>
+          <h3><%= offer.user.email %></h3>
+        <% end %>
+        <p><%= offer.publication.title %></p>
+      </div>
+      <div class="offer_date">
+        <span><small><%= offer.created_at %></small></span>
+      </div>
+    </div>
+  <% end %>
+</div>
