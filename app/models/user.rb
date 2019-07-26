@@ -33,6 +33,14 @@ class User < ApplicationRecord
     end
   end
 
+  def identifier
+    if (first_name).nil?
+      email
+    else
+      return "#{first_name.capitalize}"
+    end
+  end
+
   private
 
   def send_welcome_email

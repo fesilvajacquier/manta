@@ -1,0 +1,33 @@
+<div class="chat-wrapper">
+  <div class="chat-box" data-booking_id="<%= @offer.id %>" data-current_user="<%= current_user.id %>">
+    <% if @messages.empty? %>
+    <div class="chat-bubble-wrapper">
+      <div class="chat-bubble parking-share">
+        <div class="chat-username">Parking Share</div>
+        <div class="chat-message">Your chat is here!</div>
+      </div>
+      <div class="chat-timestamp him">
+        <%= Time.now.strftime("%m-%e-%Y %H:%M") %>
+      </div>
+    </div>
+    <% end %>
+    <% @messages.each do |message| %>
+    <%= render 'messages/message_content', message: message %>
+    <% end %>
+  </div> <%= form_with(model: [@offer, @message], remote: true, format: :json, id: 'chat-form') do |form| %>
+  <% if @message.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@message.errors.count, "error") %> prohibited this chat from being saved:</h2>
+    <ul>
+      <% @message.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= form.text_field :message, id: :message, class: "form-control", required: true, placeholder: "Type a message..." %>
+    <%= form.hidden_field :identifier, id: :identifier, value: current_user.identifier %>
+  </div>
+  <% end %>
+</div>

@@ -28,6 +28,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'jquery-rails'
 gem 'social-share-button'
 
+gem 'pusher'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
