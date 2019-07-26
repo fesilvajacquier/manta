@@ -22,6 +22,10 @@ fer = User.create!(email: 'fer@mail.com', password: '123456')
 orlando = User.create!(email: 'orlando@mail.com', password: '123456')
 pin = User.create!(email: 'pin@mail.com', password: '123456')
 yuyu = User.create!(email: 'yuyu@mail.com', password: '123456')
+sebas = User.create!(email: 'sebas@mail.com', password: '123456')
+sam = User.create!(email: 'sam@mail.com', password: '123456')
+gerardo = User.create!(email: 'gerardo@mail.com', password: '123456')
+remi = User.create!(email: 'remi@mail.com', password: '123456')
 
 # ngo
 puts 'creating ngos'
