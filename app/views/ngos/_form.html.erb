@@ -1,11 +1,11 @@
 <%= simple_form_for @ngo do |f| %>
  <%= f.error_notification %>
  <%= f.input :name, placeholder: "charity: water"%>
- <%= f.input :address, label: "My NGO is located at this address", placeholder: "1 Devonshire St, London W1W 5DR" %>
+ <%= f.input :address, label: "My NGO is located at this address", input_html: { id: 'ngo_address'}, placeholder: "1 Devonshire St, London W1W 5DR" %>
  <%= f.input :email, label: "My email", placeholder: "info@charitywater.org" %>
  <%= f.input :website, label: "My NGO website", placeholder: "https://www.charitywater.org/" %>
  <%= f.input :description, label: "My NGO description", placeholder: "charity: water is a nonprofit organization bringing clean and safe drinking water to people in developing countries." %>
- <%= f.input :bank_account, label: "My NGO bank account", placeholder: "111111111" %>
+ <%= f.input :bank_account, label: "My NGO bank account number", placeholder: "110-347-9865" %>
  <%= f.simple_fields_for :pictures do |pf| %>
    <%= pf.input :picture, as: :file %>
    <%= pf.input :picture_cache, as: :hidden %>
