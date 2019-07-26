@@ -18,12 +18,12 @@ class NgosController < ApplicationController
 
   def show
     @report = Report.new
-    @ngos = Ngo.geocoded # returns flats with coordinates
+    @ngos = Ngo.find(params[:id])
 
-    @markers = @ngos.map do |ngo|
+    @markers = [@ngos].map do |_ngo|
       {
-        lat: ngo.latitude,
-        lng: ngo.longitude
+        lat: @ngo.latitude,
+        lng: @ngo.longitude
       }
     end
   end
