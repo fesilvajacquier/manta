@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
+
   has_many :ngos
   has_many :reports
   has_many :ngo_members, dependent: :destroy
