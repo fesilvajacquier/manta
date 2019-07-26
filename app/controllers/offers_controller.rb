@@ -6,6 +6,7 @@ class OffersController < ApplicationController
     @messages = Message.where(offer: @offer)
     @message = Message.new
     @picture = Picture.new
+    authorize @offer
   end
   
   def create_offer

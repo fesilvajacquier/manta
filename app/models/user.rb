@@ -34,11 +34,11 @@ class User < ApplicationRecord
   end
 
   def identifier
-    if (first_name).nil?
+    # if (first_name).nil?
       email
-    else
-      return "#{first_name.capitalize}"
-    end
+    # else
+    #   return "#{first_name.capitalize}"
+    # end
   end
 
   private

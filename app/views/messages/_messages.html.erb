@@ -26,7 +26,7 @@
   </div>
   <% end %>
   <div class="field">
-    <%= form.text_field :message, id: :message, class: "form-control", required: true, placeholder: "Type a message..." %>
+    <%= form.text_field :content, id: :message, class: "form-control", required: true, placeholder: "Type a message..." %>
     <%= form.hidden_field :identifier, id: :identifier, value: current_user.identifier %>
   </div>
   <% end %>

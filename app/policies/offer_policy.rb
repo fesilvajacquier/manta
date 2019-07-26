@@ -5,6 +5,10 @@ class OfferPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create_offer?
     true
   end

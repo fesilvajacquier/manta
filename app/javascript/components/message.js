@@ -9,7 +9,7 @@ $(document).ready(() => {
         <div class="chat-bubble-wrapper">
           <div class="chat-bubble ${sender}">
             <div class="chat-username">${data.identifier}</div>
-            <div class="chat-message">${data.message}</div>
+            <div class="chat-message">${data.content}</div>
           </div>
           <div class="chat-timestamp  ${sender}">${formatDate(new Date(data.created_at))}</div>
         </div>
@@ -34,13 +34,13 @@ $(document).ready(() => {
       }
     };
   
-    let booking_id = $('.chat-box').data("booking_id")
+    let offer_id = $('.chat-box').data("booking_id")
     let current_user = $('.chat-box').data("current_user")
   
     chatChannel.bind('new', function(data) {
       notification(data);
       let sender = data.user_id == current_user ? "me" : "him"
-      if (data.booking_id == booking_id) {
+      if (data.offer_id == offer_id) {
         updateChat(data, sender);
         let chatBox = document.querySelector('.chat-box');
         chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
