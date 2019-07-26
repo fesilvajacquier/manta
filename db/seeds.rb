@@ -401,8 +401,8 @@ offer5 = Offer.create!(user: gerardo, publication: pub_3)
 
 
 # message
-puts 'creating messages'
-Message.create!(user: orlando, offer: offer1, content: 'somme content')
+# puts 'creating messages'
+# Message.create!(user: orlando, offer: offer1, content: 'somme content')
 
 # pictures
 # puts 'creating pictures'
