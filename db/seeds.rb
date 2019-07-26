@@ -18,14 +18,14 @@ User.destroy_all
 
 # user
 puts 'creating users'
-fer = User.create!(email: 'fer@mail.com', password: '123456')
-orlando = User.create!(email: 'orlando@mail.com', password: '123456')
-pin = User.create!(email: 'pin@mail.com', password: '123456')
-yuyu = User.create!(email: 'yuyu@mail.com', password: '123456')
-sebas = User.create!(email: 'sebas@mail.com', password: '123456')
-sam = User.create!(email: 'sam@mail.com', password: '123456')
-gerardo = User.create!(email: 'gerardo@mail.com', password: '123456')
-remi = User.create!(email: 'remi@mail.com', password: '123456')
+fer = User.create!(first_name: Fernando, email: 'fer@mail.com', password: '123456')
+orlando = User.create!(first_name: Orlando, email: 'orlando@mail.com', password: '123456')
+pin = User.create!(first_name: Plengpai, email: 'pin@mail.com', password: '123456')
+yuyu = User.create!(first_name: Yuyu, email: 'yuyu@mail.com', password: '123456')
+sebas = User.create!(first_name: Sebastian, email: 'sebas@mail.com', password: '123456')
+sam = User.create!(first_name: Samuel, email: 'sam@mail.com', password: '123456')
+gerardo = User.create!(first_name: Gerardo, email: 'gerardo@mail.com', password: '123456')
+remi = User.create!(first_name: Remi, email: 'remi@mail.com', password: '123456')
 
 # ngo
 puts 'creating ngos'
@@ -393,11 +393,16 @@ pub_30 = Publication.create!(ngo: habitat_for_humanity,
 
 # offer
 puts 'creating offers'
-pc_offer = Offer.create!(user: orlando, publication: pub_1 )
+offer1 = Offer.create!(user: orlando, publication: pub_1 )
+offer2 = Offer.create!(user: pin, publication: pub_2)
+offer3 = Offer.create!(user: fer, publication: pub_3)
+offer4 = Offer.create!(user: remi, publication: pub_4)
+offer5 = Offer.create!(user: gerardo, publication: pub_5)
+
 
 # message
 puts 'creating messages'
-Message.create!(user: orlando, offer: pc_offer, content: 'somme content')
+Message.create!(user: orlando, offer: offer1, content: 'somme content')
 
 # pictures
 # puts 'creating pictures'
