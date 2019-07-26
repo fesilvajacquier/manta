@@ -141,6 +141,12 @@ habitat_for_humanity.save!
 # ngo_member
 puts 'creating ngo_members'
 NgoMember.create!(ngo: manta_ngo, user: pin)
+NgoMember.create!(ngo: save_children, user: sam)
+NgoMember.create!(ngo: code_for_america, user:sam)
+NgoMember.create!(ngo: habitat_for_humanity, user:sam)
+NgoMember.create!(ngo: wikimedia_foundation, user: sebas)
+NgoMember.create!(ngo: global_vision_international_charitable_trust, user: sebas)
+NgoMember.create!(ngo: save_children, user: sebas)
 
 # report
 puts 'creating reports'
