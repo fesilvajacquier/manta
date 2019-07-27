@@ -11,4 +11,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
 
 initMapbox();
+
+import '../components/message'
 initAutocomplete();

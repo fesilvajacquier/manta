@@ -1,0 +1,54 @@
+<div class="offer_index">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-as-donor-tab" data-toggle="pill" href="#pills-as-donor" role="tab" aria-controls="pills-as-donor" aria-selected="true">Offers as a donor</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-as-ngo-tab" data-toggle="pill" href="#pills-as-ngo" role="tab" aria-controls="pills-as-ngo" aria-selected="false">Offers as NGO</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-as-donor" role="tabpanel" aria-labelledby="pills-as-donor-tab">
+      <% current_user.offers_as_donor.each do |offer| %>
+        <%= link_to offer_path(offer) do %>
+          <div class="offer_tab p-3 d-flex justify-content-between align-items-center">
+            <div class="offer_img">
+            </div>
+            <div class="offer_detail">
+              <h4><%= offer.publication.ngo.name %></h4>
+              <p><%= offer.publication.title %></p>
+            </div>
+            <div class="offer_date">
+              <span><small><%= offer.created_at %></small></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="pills-as-ngo" role="tabpanel" aria-labelledby="pills-as-ngo-tab">
+      <% offers_as_ngo = current_user.offers_as_owner + current_user.offers_as_collaborator %>
+      <% if offers_as_ngo.empty? %>
+        <div class="text-center">
+          <p>It is time to help!</p>
+          <p>Have a look to all the NGOs that are looking for collaborators</p>
+          <p>Placeholder for link to search</p>
+        </div>
+      <% end %>
+      <% offers_as_ngo.each do |offer| %>
+        <%= link_to offer_path(offer) do %>
+          <div class="offer_tab p-3 d-flex justify-content-between align-items-center">
+            <div class="offer_img">
+            </div>
+            <div class="offer_detail">
+              <h4><%= offer.user.email %></h4>
+              <p><%= offer.publication.title %></p>
+            </div>
+            <div class="offer_date">
+              <span><small><%= offer.created_at %></small></span>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

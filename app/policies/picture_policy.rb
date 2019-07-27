@@ -1,15 +1,12 @@
-class OfferPolicy < ApplicationPolicy
+class PicturePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
+  def create?
     true
   end
 
-  def create_offer?
-    true
-  end
 end

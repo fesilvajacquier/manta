@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :publications, only: %i[index show]
   get '/publications/:publication_id/create_offer', to: 'offers#create_offer', as: :create_offer
 
-  resources :offers, only: %i[index update] do
+  resources :offers, only: %i[index show update] do
     resources :messages, only: %i[create]
   end
 
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
       resources :publications, only: %i[new create ]
       resources :ngo_members, only: %i[create destroy]
     end
+    
    resources :publications, only: %i[edit update destroy]
-
   end
 
-  resources :pictures
+  resources :pictures, only: %i[create destroy]
 end

@@ -1,0 +1,69 @@
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 600px;
+  padding-bottom: 7px;
+  .chat-box {
+    padding: 1.5em;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .chat-bubble-wrapper {
+      padding-bottom: 1em;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .chat-timestamp {
+        display: flex;
+        font-size: 13px;
+        &.me {
+          justify-content: flex-end;
+        }
+      }
+      .chat-bubble {
+        border-radius: 5px;
+        padding: 0.5em;
+        box-shadow: 4px 7px 8px -11px #000000
+ ;
+        text-overflow: ellipsis;
+        min-width: 10em;
+        display: flex;
+        flex-direction: column;
+        flex: auto;        &.me {
+          background-color: #DCF8C5
+ ;
+          align-self: flex-end;
+          font-family: 'Raleway';        }
+        &.him {
+          background-color: #f4f4f4
+ ;
+          align-self: flex-start;
+          font-family: 'Raleway';        }
+        &.parking-share {
+          align-self: flex-start;
+          background-color: #E1F3FB
+ ;
+        }
+        .chat-username {
+          font-size: 0.7em;
+          color: black;
+          font-weight: bold;
+        }
+        .chat-message {
+          font-size: 1em;
+        }
+      }
+    }
+  }  #chat-form {
+    // position: absolute;
+    // bottom: 37px;
+    width: 100%;
+    #message {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+    }
+  }
+ }
