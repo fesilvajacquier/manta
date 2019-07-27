@@ -27,7 +27,10 @@ class PublicationsController < ApplicationController
   def show
   end
 
+
   private
+
+
 
   def set_publication
     @publication = Publication.find(params[:id])
