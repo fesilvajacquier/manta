@@ -14,9 +14,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :ngos, only: [:show] do
-      resources :publications, only: %i[new create edit update destroy]
+      resources :publications, only: %i[new create ]
       resources :ngo_members, only: %i[create destroy]
     end
+   resources :publications, only: %i[edit update destroy]
+
   end
 
   resources :pictures

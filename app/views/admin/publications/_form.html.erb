@@ -1,0 +1,15 @@
+<%= simple_form_for [:admin, ngo, publication] do |f| %>
+ <%= f.error_notification %>
+ <%= f.input :title, placeholder: "10 chairs"%>
+ <%= f.input :location, label: "Location", input_html: { id: 'ngo_address'}, placeholder: "1 Devonshire St, London W1W 5DR" %>
+ <%= f.input :description, label: "Description", placeholder: "We need 10 chairs for donating to school" %>
+  <%= f.input :category, label: "Category", placeholder: "category" %>
+  <%= f.input :sub_category, label: "subcategory", placeholder: "subcategory" %>
+ <%= f.simple_fields_for :pictures do |pf| %>
+   <%= pf.input :picture, as: :file %>
+   <%= pf.input :picture_cache, as: :hidden %>
+   <%= pf.input :imageable_id, as: :hidden %>
+   <%= pf.input :imageable_type, as: :hidden %>
+ <% end %>
+ <%= f.button :submit, class: "btn btn-success btn-lg"%>
+<% end %>
