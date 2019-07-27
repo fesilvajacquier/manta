@@ -1,19 +1,33 @@
 <div class="container d-flex align-items-center offers-display">
 
   <div class="offers-wrapper">
-      <%= link_to root_path  %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"> <%#= cl_image_tag publication.picture %>
-        <div class="card-product-infos">
-          <h2><%= @ngo.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
+    <% @ngo.publications.each do |pub| %>
+      <%= link_to publication_path(pub) do  %>
+
+
+        <div class="card-product mt-3">
+
+          <div class="card-product-infos">
+            <h2><%= pub.title %></h2>
+            <p><%= pub.description%></p>
+          </div>
+
+
+          <div>
+            <%= link_to "Edit", root_path  %>
+            <%= link_to "Close", root_path  %>
+          </div>
+
         </div>
-      </div>
-  </div>
+
+      <% end %>
+      <% end %>
+
+    </div>
 
   <div class="user-options text-center">
     <%= link_to "My profile", root_path %>
-    <%= link_to "Manage members", root_path %>
+    <%= link_to "Manage members", root_path  %>
     <%= link_to "Create publication", root_path %>
   </div>
 
