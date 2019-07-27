@@ -25,13 +25,12 @@ class PublicationsController < ApplicationController
   end
 
   def show
-    @ngo = Ngo.find(params[:id])
-    @publication = Publication.new
-    @publication.pictures.build
-    authorize @publication
   end
 
+
   private
+
+
 
   def set_publication
     @publication = Publication.find(params[:id])
