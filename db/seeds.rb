@@ -29,21 +29,14 @@ remi = User.create!(first_name: 'Remi', email: 'remi@mail.com', password: '12345
 
 # ngo
 puts 'creating ngos'
-manta_ngo = Ngo.new(name: 'mantango',
-                        address: 'Niceto Vega, Buenos Aires, Argentina',
-                        email: 'mantango@mail.com',
-                        website: 'www.manta.com',
-                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.',
-                        bank_account: 1)
-manta_ngo.user = yuyu
-manta_ngo.save!
+
 
 wikimedia_foundation = Ngo.new(name:'wikimedia foundation',
                                 address: 'Av. Maipú 173, V9410 Ushuaia, Tierra del Fuego, Argentina',
                                 email: 'info@wikimedia.org',
                                 website: 'https://wikimediafoundation.org',
                                 description:'The nonprofit Wikimedia Foundation provides the essential infrastructure for free knowledge. We host Wikipedia, the free online encyclopedia, created, edited, and verified by volunteers around the world, as well as many other vital community projects. All of which is made possible thanks to donations from individuals like you. We welcome anyone who shares our vision to join us in collecting and sharing knowledge that fully represents human diversity.',
-                                bank_account: 2)
+                                bank_account: '2')
 wikimedia_foundation.user = pin
 wikimedia_foundation.save!
 
@@ -55,7 +48,7 @@ save_children = Ngo.new(name:'save children',
                  description:'Transforming Lives and Futures
                   All across the globe, children are dying from preventable causes, missing out on education due to poverty or gender, suffering from violence, exploitation and neglect, and are vulnerable in times of crisis. In every corner of the world, children need a strong voice to stand up for them, work on their behalf and make their lives better.
                   Save the Children is the voice for vulnerable children. We’re on the ground in 120 countries, working to reach every last child through international programs that focus on health, education, protection and disaster relief. Together, we’re changing children’s lives and the future we all share.',
-                 bank_account:3)
+                 bank_account:'3')
 save_children.user = pin
 save_children.save!
 
@@ -65,7 +58,7 @@ cambia = Ngo.new(name:'Cambia',
                  website:'https://cambia.org',
                  description:'Cambia is a non profit social enterprise, creating new tools, technologies, and paradigms to promote change and enable innovation.
                   Our mission is to democratize innovation: to create a more equitable and inclusive capability to solve problems using science and technology. Our institutional ethos is built around an awareness of the need and opportunity for local commitment to achieving lasting solutions to food security, agricultural, public health and environmental problems.',
-                 bank_account:4)
+                 bank_account:'4')
 cambia.user = pin
 cambia.save!
 
@@ -75,7 +68,7 @@ barefoot_college = Ngo.new(name:'barefoot college',
                  website:'https://www.barefootcollege.org',
                  description:"The Social Work and Research Centre ('SWRC'), widely known as the Barefoot College[1] is a voluntary organisation working in the fields of education, skill development, health, drinking water, women empowerment and electrification through solar power for the upliftment of rural people,which was founded by Bunker Roy in 1972. It is registered under Friends of Tilonia Inc.
                  The Villagers' Barefoot College in the village of Tilonia gives lessons in reading, writing and accounting to adults and children especially the drop-outs, cop-outs and wash-outs. Girls heavily outnumber boys in the night schools.In 2008 there were approximately 3,000 children attending 150 night schools" ,
-                 bank_account:5)
+                 bank_account:'5')
 barefoot_college.user = fer
 barefoot_college.save!
 
@@ -84,7 +77,7 @@ code_for_america = Ngo.new(name: 'code for america',
                  email:'info@codeforamerica.org',
                  website:'https://www.codeforamerica.org/about-us',
                  description:'We are a network of people making government work for the people, by the people, in the digital age. How do we get there? With government services that are simple, effective, and easy to use, working at scale to help all Americans, starting with the people who need them most.',
-                 bank_account:6)
+                 bank_account:'6')
 code_for_america.user = fer
 code_for_america.save!
 
@@ -94,7 +87,7 @@ human_rights_watch = Ngo.new(name:'human rights watch',
                  email:'tilianm@hrw.org',
                  website:'https://www.hrw.org',
                  description:'Human Rights Watch investigates and reports on abuses happening in all corners of the world. We are roughly 450 people of 70-plus nationalities who are country experts, lawyers, journalists, and others who work to protect the most at risk, from vulnerable minorities and civilians in wartime, to refugees and children in need. We direct our advocacy towards governments, armed groups and businesses, pushing them to change or enforce their laws, policies and practices. To ensure our independence, we refuse government funding and corporate ties. We partner with organizations large and small across the globe to protect embattled activists and to help hold abusers to account and bring justice to victims.',
-                 bank_account:7)
+                 bank_account:'7')
 human_rights_watch.user = fer
 human_rights_watch.save!
 
@@ -103,7 +96,7 @@ care_international = Ngo.new(name:'Care international',
                  email:'cisecretariat@careinternational.org',
                  website:'https://www.care-international.org',
                  description:'CARE is a major international humanitarian agency delivering emergency relief and long-term international development projects. Founded in 1945, CARE is nonsectarian, impartial, and non-governmental. It is one of the largest and oldest humanitarian aid organizations focused on fighting global poverty',
-                 bank_account:8
+                 bank_account:'8'
                  )
 care_international.user = yuyu
 care_international.save!
@@ -113,7 +106,7 @@ aflatoun = Ngo.new(name:'Aflatoun',
                  email:'info@aflatoun.org',
                  website:'https://www.aflatoun.org',
                  description:'Aflatoun International is a non-governmental organization focusing on educating children about their rights and responsibilities and managing financial resources through social and financial education. ',
-                 bank_account:9)
+                 bank_account:'9')
 aflatoun.user = yuyu
 aflatoun.save!
 
@@ -125,7 +118,7 @@ global_vision_international_charitable_trust = Ngo.new(name:'Global Vision Inter
                               2. To promote, for the benefit of the public, the conservation, protection and improvement of the physical and natural environment.
                               3. To advance education and research for the benefit of the public in the conservation, protection and improvement of the physical and natural environment.
                               4. To relieve poverty, financial hardship and distress.',
-                 bank_account:10)
+                 bank_account:'10')
 global_vision_international_charitable_trust.user = orlando
 global_vision_international_charitable_trust.save!
 
@@ -134,7 +127,7 @@ habitat_for_humanity = Ngo.new(name:'Habitat for Humanity',
                  email:'lac@habitat.org',
                  website:'https://www.habitat.org',
                  description:'Habitat for Humanity International, generally referred to as Habitat for Humanity or simply Habitat, is an international, non-governmental, and nonprofit organization, which was founded in 1976 by Linda and Millard Fuller',
-                 bank_account:11)
+                 bank_account:'11')
 habitat_for_humanity.user = orlando
 habitat_for_humanity.save!
 
