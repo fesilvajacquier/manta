@@ -1,6 +1,6 @@
 class NgosController < ApplicationController
   before_action :set_ngo, only: %i[show]
-  skip_before_action :authenticate_user!, only: %i[show new create]
+  skip_before_action :authenticate_user!, only: %i[show]
 
   def index
     if params[:search].present?
@@ -35,6 +35,7 @@ class NgosController < ApplicationController
   end
 
   def create
+    raise
     @ngo = Ngo.new(ngo_params)
     @ngo.pictures.first.imageable_id = 1
     @ngo.user = current_user
