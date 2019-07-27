@@ -1,35 +1,34 @@
-<div class="container-fluid">
-  <div class="row">
-    <% 10.times do %>
-    <div class="col-12 col-sm-12 col-md-8">
-      <%= link_to root_path do %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> <%#= cl_image_tag publication.picture %>
-        <div class="card-product-infos">
-          <h2><%= @ngo.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
+<div class="container d-flex align-items-center offers-display">
+
+  <div class="offers-wrapper">
+    <% @ngo.publications.each do |pub| %>
+      <%= link_to publication_path(pub) do  %>
+
+
+        <div class="card-product mt-3">
+
+          <div class="card-product-infos">
+            <h2><%= pub.title %></h2>
+            <p><%= pub.description%></p>
+          </div>
+
+
+          <div>
+            <%= link_to "Edit", root_path, class:"button" %>
+            <%= link_to "Close", root_path, class:"button"  %>
+          </div>
+
         </div>
-      </div>
+
       <% end %>
+      <% end %>
+
     </div>
-  <% end %>
+
+  <div class="user-options text-center">
+    <%= link_to "My profile", root_path, class:"button space-btw-button" %>
+    <%= link_to "Manage members", root_path, class:"button "  %>
+    <%= link_to "Create publication", root_path, class:"button " %>
   </div>
+
 </div>
-
-<div class="button">
-  <p>see offer</p>
-</div>
-
-<div class="button">
-  <p>my profile</p>
-</div>
-
-<div class="button">
-  <p>manage member</p>
-</div>
-
-<div class="button">
-  <p>create publication</p>
-</div>
-
-
