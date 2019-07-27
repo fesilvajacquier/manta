@@ -1,7 +1,28 @@
+.offer-show {
+  height: 75vh;
+}
 .offer_index {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 400px;
   height: 100%;
-  width: 300px;
+  position: relative;
+  overflow: scroll;
 }
 .offer_tab {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.offer-pictures {
   border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 100%;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  :hover {
+    color: #a7d2cb;
+  }
 }

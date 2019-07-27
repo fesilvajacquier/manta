@@ -1,0 +1,27 @@
+<div class="offer-pictures">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-pub-details-tab" data-toggle="pill" href="#pills-pub-details" role="tab" aria-controls="pills-pub-details" aria-selected="true">Pub details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-offer-pictures-tab" data-toggle="pill" href="#pills-offer-pictures" role="tab" aria-controls="pills-offer-pictures" aria-selected="false">Offer pictures</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-pub-details" role="tabpanel" aria-labelledby="pills-pub-details-tab">
+      <div class="text-center px-3">
+        <h4><%= @offer.publication.title %></h4>
+        <span>posted by <%= @offer.publication.ngo.name %></span>
+        <p><%= @offer.publication.description %></p>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-offer-pictures" role="tabpanel" aria-labelledby="pills-offer-pictures-tab">
+      <div class="text-center">
+        <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
+          Carrousel placeholder
+        </div>
+        <button>Upload pic</button>
+      </div>
+    </div>
+  </div>
+</div>
