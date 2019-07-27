@@ -6,15 +6,21 @@
             <h1><%=@ngo.name%></h1>
             <h5><strong>Location:</strong> <%=@ngo.address%></h4>
           </div>
-          <div class="share-button">
+          <!-- <div class="share-button">
             <button type="button" class="button space-btw-button" name="SHARE">
               SHARE
             </button>
-          </div>
+          </div> -->
          </div>
         <div class="ngo-info">
           <h5><strong>About us</strong></h5>
           <p> <%=@ngo.description%> </p>
+        </div>
+        <div class="ngo-contact">
+          <h5><strong>Contact</strong></h5>
+          <p> <%=@ngo.address%> </p>
+          <p> <%=@ngo.email%> </p>
+          <p> <%=@ngo.website%> </p>
         </div>
         <div
           id="map"
