@@ -1,0 +1,15 @@
+.offers-wrapper {
+  flex: 3;
+}
+
+.user-options {
+  flex: 1;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .offers-display {
+    flex-direction: column-reverse;
+  }
+}

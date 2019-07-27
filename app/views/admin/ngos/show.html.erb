@@ -1,35 +1,20 @@
-<div class="container-fluid">
-  <div class="row">
-    <% 10.times do %>
-    <div class="col-12 col-sm-12 col-md-8">
-      <%= link_to root_path do %>
+<div class="container d-flex align-items-center offers-display">
+
+  <div class="offers-wrapper">
+      <%= link_to root_path  %>
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> <%#= cl_image_tag publication.picture %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg"> <%#= cl_image_tag publication.picture %>
         <div class="card-product-infos">
           <h2><%= @ngo.name %></h2>
           <p>Product description with <strong>relevant info</strong> only.</p>
         </div>
       </div>
-      <% end %>
-    </div>
-  <% end %>
   </div>
+
+  <div class="user-options text-center">
+    <%= link_to "My profile", root_path %>
+    <%= link_to "Manage members", root_path %>
+    <%= link_to "Create publication", root_path %>
+  </div>
+
 </div>
-
-<div class="button">
-  <p>see offer</p>
-</div>
-
-<div class="button">
-  <p>my profile</p>
-</div>
-
-<div class="button">
-  <p>manage member</p>
-</div>
-
-<div class="button">
-  <p>create publication</p>
-</div>
-
-
