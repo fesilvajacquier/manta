@@ -3,7 +3,7 @@ class Ngo < ApplicationRecord
   
   has_many :publications, dependent: :destroy
   has_many :publications_as_owner, dependent: :destroy
-  has_many :publications_as_collaborator, dependent: :destroy
+  has_many :publications_as_collaborator, dependent: :destroy, foreign_key: 'ngo_id', class_name: 'Publication'
 
   has_many :offers, through: :publications
   has_many :reports, dependent: :destroy
@@ -18,7 +18,7 @@ class Ngo < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   accepts_nested_attributes_for :pictures
 
-  include PgSearch
+  include PgSearch::Model
   pg_search_scope :search_ngos,
                   against: %i[name description address],
                   using: {

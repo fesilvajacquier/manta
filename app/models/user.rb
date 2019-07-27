@@ -16,10 +16,10 @@ class User < ApplicationRecord
   has_many :offers_as_donor, foreign_key: 'user_id', class_name: 'Offer', dependent: :destroy
 
   has_many :publications_as_owner, through: :ngos_as_owner, source: :publications
-  has_many :offers_as_owner, through: :publications_as_owner, source: :offer
+  has_many :offers_as_owner, through: :publications_as_owner, source: :offers_as_owner
 
-  has_many :publications_as_collaborator, through: :ngos_as_collaborator, source: :publication
-  has_many :offers_as_collaborator, through: :publications_as_collaborator, source: :offer
+  has_many :publications_as_collaborator, through: :ngos_as_collaborator, source: :publications_as_collaborator
+  has_many :offers_as_collaborator, through: :publications_as_collaborator, source: :offers_as_collaborator
 
   has_many :messages
   has_many :pictures, as: :imageable
@@ -29,9 +29,9 @@ class User < ApplicationRecord
   # class<<self
   # end
 
+  # DONE offers_as_owner
   # offers_as_collaborator
-  # offers_as_donor
-  # offers_as_owner
+  # DONE offers_as_donor
   
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
