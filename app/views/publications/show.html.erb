@@ -7,8 +7,8 @@
   <meta property="og:description" content="<%= truncate(@publication.description, length: 50) %>" />
   <meta property="og:url" content="<%= request.original_url %>" />
   <% if @publication.ngo.pictures.first.present? %>
-      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(@publication.ngo.pictures.first.photo)}" %>
-      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(@publication.ngo.pictures.first.photo)}" %>
+      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(@publication.ngo.pictures.first.picture)}" %>
+      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(@publication.ngo.pictures.first.picture)}" %>
   <% end %>
   <meta name="twitter:card" content="summary_large_image">
   <%# TODO add manta web %>

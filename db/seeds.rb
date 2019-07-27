@@ -57,8 +57,8 @@ puts 'creating offers'
 pc_offer = Offer.create!(user: orlando, publication: pc_pub )
 
 # message
-puts 'creating messages'
-Message.create!(user: orlando, offer: pc_offer, content: 'somme content')
+# puts 'creating messages'
+# Message.create!(user: orlando, offer: pc_offer, content: 'somme content')
 
 # pictures
 # puts 'creating pictures'

@@ -18,10 +18,12 @@
     <div class="tab-pane fade" id="pills-offer-pictures" role="tabpanel" aria-labelledby="pills-offer-pictures-tab">
       <div class="text-center">
         <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
-          Carrousel placeholder
+          <% unless @offer.pictures.empty? %>
+            <%= cl_image_tag @offer.pictures.first.picture, crop: :fill %>
+          <% end %>
         </div>
         <%= simple_form_for @picture do |pf| %>
-          <%= pf.input :photo, as: :file %>
+          <%= pf.input :picture, as: :file %>
           <%= pf.input :imageable_id, as: :hidden, input_html: { value: @offer.id } %>
           <%= pf.input :imageable_type, as: :hidden, input_html: { value: @offer.class } %>
           <%= pf.submit class: "btn btn-success btn-lg"%>

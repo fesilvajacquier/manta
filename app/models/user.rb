@@ -62,6 +62,19 @@ class User < ApplicationRecord
     # end
   end
   
+  # def last_offer
+  #   last_offers = []
+  #   last_offers += offers_as_donor.last
+  #   last_offers += offers_as_owner.last
+  #   last_offers += offers_as_collaborator.last
+  #   unless last_offer.empty?
+  #     last_offers.max_by do |offer|
+  #       offer.created_at
+  #     end
+  #   else
+  #     nil
+  #   end
+  # end
   
   private
   
