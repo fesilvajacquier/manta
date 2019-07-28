@@ -26,7 +26,7 @@ class Ngo < ApplicationRecord
                   }
 
   def is_stakeholder?(current_user)
-    current_user = self.user || self.ngo_members.include(current_user) 
+    current_user == self.user || self.ngo_members.include?(current_user) 
   end
 
 end
