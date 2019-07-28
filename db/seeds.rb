@@ -133,7 +133,7 @@ habitat_for_humanity.save!
 
 # ngo_member
 puts 'creating ngo_members'
-NgoMember.create!(ngo: manta_ngo, user: pin)
+# NgoMember.create!(ngo: manta_ngo, user: pin)
 NgoMember.create!(ngo: save_children, user: sam)
 NgoMember.create!(ngo: code_for_america, user:sam)
 NgoMember.create!(ngo: habitat_for_humanity, user:sam)
@@ -143,7 +143,7 @@ NgoMember.create!(ngo: save_children, user: sebas)
 
 # report
 puts 'creating reports'
-Report.create!(ngo: manta_ngo, phone_number: '123234234', category: 'something', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
+# Report.create!(ngo: manta_ngo, phone_number: '123234234', category: 'something', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris feugiat justo lectus, non aliquam eros accumsan id. Nulla eget odio eget mi semper semper id sed sapien. Etiam commodo diam quis nullam.' )
 
 # publication
 puts 'creating publications'

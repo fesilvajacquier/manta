@@ -2,7 +2,7 @@ class Ngo < ApplicationRecord
   belongs_to :user
   
   has_many :publications, dependent: :destroy
-  has_many :publications_as_owner, dependent: :destroy
+  has_many :publications_as_owner, dependent: :destroy, foreign_key: 'ngo_id', class_name: 'Publication'
   has_many :publications_as_collaborator, dependent: :destroy, foreign_key: 'ngo_id', class_name: 'Publication'
 
   has_many :offers, through: :publications
