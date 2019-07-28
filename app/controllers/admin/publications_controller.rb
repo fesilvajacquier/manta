@@ -1,6 +1,7 @@
 class Admin::PublicationsController < ApplicationController
   before_action :set_ngo, only: [:new, :create]
   before_action :set_publication, only: [:edit, :update]
+  before_action :set_categories, only: [:new, :edit]
 
   def new
     @publication = Publication.new
@@ -37,6 +38,10 @@ class Admin::PublicationsController < ApplicationController
 
   def set_ngo
     @ngo = Ngo.find(params[:ngo_id])
+  end
+
+  def set_categories
+    @categories = Category.roots
   end
 
   def set_publication
