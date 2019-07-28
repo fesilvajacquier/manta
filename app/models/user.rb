@@ -61,7 +61,7 @@ class User < ApplicationRecord
     #   return "#{first_name.capitalize}"
     # end
   end
-  
+ 
   # def last_offer
   #   last_offers = []
   #   last_offers += offers_as_donor.last

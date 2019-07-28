@@ -26,7 +26,8 @@ class Admin::PublicationsController < ApplicationController
 
   def update
     if @publication.update(publication_params)
-      redirect_to admin_ngo_publications_path
+      byebug
+      redirect_to @publication
     else
       render :new
     end
@@ -52,10 +53,12 @@ class Admin::PublicationsController < ApplicationController
       :location,
       :created_at,
       :updated_at,
+      :closing_text,
       pictures_attributes: %i[
         picture
         imageable_id
         imageable_type
+        category
       ]
     )
   end

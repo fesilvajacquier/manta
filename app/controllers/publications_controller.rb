@@ -25,6 +25,8 @@ class PublicationsController < ApplicationController
   end
 
   def show
+    # @publication.pictures.build
+    @picture  = Picture.new
   end
 
   private

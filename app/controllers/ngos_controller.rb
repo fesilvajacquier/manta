@@ -35,7 +35,7 @@ class NgosController < ApplicationController
   end
 
   def create
-    raise
+    # raise
     @ngo = Ngo.new(ngo_params)
     @ngo.pictures.first.imageable_id = 1
     @ngo.user = current_user
