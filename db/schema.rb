@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_192515) do
+ActiveRecord::Schema.define(version: 2019_07_28_225942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 2019_07_28_192515) do
     t.string "title"
     t.text "description"
     t.text "intended_use"
-    t.bigint "category_id"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_publications_on_category_id"
     t.index ["ngo_id"], name: "index_publications_on_ngo_id"
   end
@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 2019_07_28_192515) do
   add_foreign_key "ngos", "users"
   add_foreign_key "offers", "publications"
   add_foreign_key "offers", "users"
-  add_foreign_key "publications", "categories"
   add_foreign_key "publications", "ngos"
   add_foreign_key "reports", "ngos"
 end
