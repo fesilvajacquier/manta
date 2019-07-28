@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_214010) do
+ActiveRecord::Schema.define(version: 2019_07_28_191205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_214010) do
     t.string "imageable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category"
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_214010) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "closing_text"
     t.index ["ngo_id"], name: "index_publications_on_ngo_id"
   end
 
