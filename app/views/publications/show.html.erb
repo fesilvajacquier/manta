@@ -53,10 +53,15 @@
       </p>
       <% if @publication.closing_text %>
         <h3 class="sub-header">Closing</h3>
-        <%= cl_image_tag Picture.find_by(imageable_type: @publication.class.to_s, imageable_id: @publication.id, category: 'closing').picture, width: 400, height: 300, crop: :fit %>
-        <p>
-          <%= @publication.closing_text %>
-        </p>
+        <div class="d-flex">
+          <%= cl_image_tag Picture.find_by(imageable_type: @publication.class.to_s, imageable_id: @publication.id, category: 'closing').picture, width: 400, height: 300, crop: :fit %>
+          <div>
+            <h5>Closing evidence description</h5>
+            <p>
+              <%= @publication.closing_text %>
+            </p>
+          </div>
+        </div>
       <% end %>
       <% if @publication.ngo.is_stakeholder?(current_user) %>
         <div class="report-ngo-button">
@@ -64,6 +69,7 @@
             Upload evidence
           </button>
         </div>
+        <%= render 'closing_form' %>
       <% else %>
         <div class="report-ngo-button">
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#offerModal">
@@ -75,4 +81,3 @@
   </div>
 </div>
 <%= render 'offer_modal' %>
-<%= render 'closing_form' %>
