@@ -10,7 +10,7 @@
       <div class="modal-body">
         <%= simple_form_for @report do |f| %>
           <%= f.input :ngo_id, as: :hidden, input_html: { value: params[:id] } %>
-          <%= f.input :category %>
+          <%= f.input :category, collection: (Report::REP_CAT) %>
           <%= f.input :content, input_html: { minlength: 140 } %>
           <%= f.input :phone_number %>
           <%= f.submit 'Create report', id: 'reportSubmit', disabled: true %>
