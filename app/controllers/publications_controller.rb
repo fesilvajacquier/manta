@@ -25,12 +25,11 @@ class PublicationsController < ApplicationController
   end
 
   def show
+    # @publication.pictures.build
+    @picture  = Picture.new
   end
 
-
   private
-
-
 
   def set_publication
     @publication = Publication.find(params[:id])

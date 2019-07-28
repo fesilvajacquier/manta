@@ -1,5 +1,5 @@
 class Publication < ApplicationRecord
-
+  enum status: { open: 0, closed: 1, archived: 2 }
   belongs_to :ngo
   belongs_to :category
   has_many :offers, dependent: :destroy
@@ -10,6 +10,7 @@ class Publication < ApplicationRecord
   validates :ngo_id, :title, :description, :intended_use, :category_id, :location, presence: true
   validates :description, :intended_use, length: { minimum: 100 }
   geocoded_by :address
+  accepts_nested_attributes_for :pictures
 
   # after_validation :geocode, if: :will_save_change_to_address?
   # TODO: add category validation

@@ -24,4 +24,9 @@ class Ngo < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def is_stakeholder?(current_user)
+    current_user == self.user || self.ngo_members.include?(current_user) 
+  end
+
 end
