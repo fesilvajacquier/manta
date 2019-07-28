@@ -27,7 +27,6 @@ class Admin::PublicationsController < ApplicationController
 
   def update
     if @publication.update(publication_params)
-      byebug
       redirect_to @publication
     else
       render :new
