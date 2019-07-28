@@ -5,8 +5,7 @@ class CreatePublications < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.text :intended_use
-      t.string :category
-      t.string :sub_category
+      t.references :category, foreign_key: true
       t.string :location
 
       t.timestamps
