@@ -1,4 +1,5 @@
 class Publication < ApplicationRecord
+  enum status: { open: 0, closed: 1, archived: 2 }
   belongs_to :ngo
   has_many :offers, dependent: :destroy
   has_many :offers_as_owner, dependent: :destroy, foreign_key: 'publication_id', class_name: 'Offer'
