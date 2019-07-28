@@ -27,7 +27,7 @@ gem 'cloudinary', '~> 1.9.1'
 
 gem 'jquery-rails'
 gem 'social-share-button'
-
+gem 'ancestry'
 gem 'pusher'
 
 group :development do
