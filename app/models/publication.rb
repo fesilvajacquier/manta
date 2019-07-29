@@ -1,5 +1,6 @@
 class Publication < ApplicationRecord
-  enum status: { open: 0, closed: 1, archived: 2 }
+  STATUS = { open: 0, closed: 1, archived: 2 }
+  enum status: STATUS
   belongs_to :ngo
   belongs_to :category
   has_many :offers, dependent: :destroy
@@ -18,10 +19,15 @@ class Publication < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_publications,
-                  against: %i[title description location],
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+    against: {
+      title: 'A',
+      description: 'B',
+      intended_use: 'B',
+      location: 'C'
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def send_notification_email
     PublicationMailer.with(publication: self).notification.deliver_later

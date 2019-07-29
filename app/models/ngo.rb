@@ -20,7 +20,11 @@ class Ngo < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_ngos,
-                  against: %i[name description address],
+                  against: {
+                    name: 'A',
+                    description: 'B',
+                    address: 'C'
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }
