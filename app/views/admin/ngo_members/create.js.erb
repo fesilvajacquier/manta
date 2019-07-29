@@ -1,0 +1,18 @@
+function refreshForm(innerHTML) {
+  var newNgoMemberForm = document.getElementById('new_ngo_member');
+  newNgoMemberForm.innerHTML = innerHTML;
+}
+
+function addNgoMember(NgoMemberHTML) {
+  var members = document.getElementById('ngo-members');
+  var closeAddMemberModal =  document.getElementById('close-add-member-modal');
+  members.insertAdjacentHTML('beforeend', NgoMemberHTML);
+  closeAddMemberModal.click()
+}
+
+<% if @ngo_member.errors.any? %>
+  refreshForm('<%= j render "/admin/ngos/ngo_members_form", ngo: @ngo, ngo_member: @ngo_member %>');
+<% else %>
+  addNgoMember('<%= j render "admin/ngo_members/ngo_member_item", ngo_member: @ngo_member %>');
+  refreshForm('<%= j render "/admin/ngos/ngo_members_form", ngo: @ngo, ngo_member: NgoMember.new %>');
+<% end %>
