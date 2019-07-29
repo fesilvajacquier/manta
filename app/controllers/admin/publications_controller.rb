@@ -1,7 +1,7 @@
 class Admin::PublicationsController < ApplicationController
-  before_action :set_ngo, only: [:new, :create]
-  before_action :set_publication, only: [:edit, :update]
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_ngo, only: %i[new create]
+  before_action :set_publication, only: %i[edit update]
+  before_action :set_categories, only: %i[new edit]
 
   def new
     @publication = Publication.new
@@ -67,5 +67,3 @@ class Admin::PublicationsController < ApplicationController
     )
   end
 end
-
-
