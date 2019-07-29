@@ -16,11 +16,11 @@
       <div>
         <%= link_to "Edit", edit_admin_publication_path, class:"button" %>
         <div class="report-ngo-button">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
             Upload evidence
           </button>
         </div>
-        <%= render 'closing_form' %>
+        <%= render 'publications/closing_form', publication: pub, picture: @picture %>
       </div>
 
       </div>
