@@ -1,5 +1,6 @@
 class Publication < ApplicationRecord
-  enum status: { open: 0, closed: 1, archived: 2 }
+  STATUS = { open: 0, closed: 1, archived: 2 }
+  enum status: STATUS
   belongs_to :ngo
   belongs_to :category
   has_many :offers, dependent: :destroy
@@ -17,7 +18,12 @@ class Publication < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_publications,
-    against: [ :title, :description, :location ],
+    against: {
+      title: 'A',
+      description: 'B',
+      intended_use: 'B',
+      location: 'C'
+    },
     using: {
       tsearch: { prefix: true }
     }
