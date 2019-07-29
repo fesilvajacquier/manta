@@ -9,8 +9,6 @@ initMapbox();
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
 initAutocomplete();
 import '../components/message'
-import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 

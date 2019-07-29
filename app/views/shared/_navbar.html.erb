@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
   <%= image_tag asset_path("manta.png") %>
 <% end %>
@@ -16,9 +16,12 @@
       </select>
 
       <input class="form-control mr-sm-2" type="text" name="search" placeholder="Try xyz" aria-label="Search">
-      <i class="fas fa-search"></i>
+                        <i class="fas fa-search"></i>
+
     </div>
+
   </form>
+
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
