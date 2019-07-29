@@ -6,7 +6,6 @@ class Admin::NgoPolicy < ApplicationPolicy
   end
 
   def show?
-    # record.user == user
-    true
+    record.is_stakeholder?(user)
   end
 end
