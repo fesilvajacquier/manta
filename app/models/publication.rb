@@ -13,6 +13,7 @@ class Publication < ApplicationRecord
   geocoded_by :address
   accepts_nested_attributes_for :pictures
 
+  after_create :send_notification_email
   # after_validation :geocode, if: :will_save_change_to_address?
   # TODO: add category validation
   include PgSearch::Model
@@ -27,4 +28,8 @@ class Publication < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def send_notification_email
+    PublicationMailer.with(publication: self).notification.deliver_later
+  end
 end

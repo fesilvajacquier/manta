@@ -2,33 +2,45 @@
 
   <div class="offers-wrapper">
     <% @ngo.publications.each do |pub| %>
-      <%= link_to publication_path(pub) do  %>
+    <%= link_to publication_path(pub) do  %>
 
 
-        <div class="card-product mt-3">
+    <div class="card-product mt-3">
 
-          <div class="card-product-infos">
-            <h2><%= pub.title %></h2>
-            <p><%= pub.description%></p>
-          </div>
+      <div class="card-product-infos">
+        <h2><%= pub.title %></h2>
+        <p><%= pub.description%></p>
+        <% if pub.offers.empty? %>
+          <%= link_to "No offers", class:"button space-btw-button" %>
+        <% else %>
+          <%= link_to "#{pub.offers.count} offer(s)", offer_path(pub.offers.last) %>
+        <% end %>
+      </div>
 
 
-          <div>
-            <%= link_to "Edit", root_path, class:"button" %>
-            <%= link_to "Close", root_path, class:"button"  %>
-          </div>
-
+      <div>
+        <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
+        <div class="report-ngo-button">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
+            Upload evidence
+          </button>
         </div>
+        <%= render 'publications/closing_form', publication: pub, picture: @picture %>
+      </div>
+
+      </div>
 
       <% end %>
       <% end %>
-
+    </div>
     </div>
 
-  <div class="user-options text-center">
-    <%= link_to "My profile", root_path, class:"button space-btw-button" %>
-    <%= link_to "Manage members", root_path, class:"button "  %>
-    <%= link_to "Create publication", root_path, class:"button " %>
-  </div>
+    <div class="user-options text-center">
 
-</div>
+       <%= link_to "See offers", offers_path(@publication), class:"button space-btw-button" %>
+      <%= link_to "My profile", @ngo, class:"button" %>
+      <%= link_to "Manage members", root_path, class:"button "  %>
+      <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button " %>
+    </div>
+
+  </div>

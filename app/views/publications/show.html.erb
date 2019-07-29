@@ -65,11 +65,11 @@
       <% end %>
       <% if @publication.ngo.is_stakeholder?(current_user) %>
         <div class="report-ngo-button">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal-<%= @publication.id%>">
             Upload evidence
           </button>
         </div>
-        <%= render 'closing_form' %>
+        <%= render 'publications/closing_form', publication: @publication, picture: @picture %>
       <% else %>
         <div class="report-ngo-button">
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#offerModal">

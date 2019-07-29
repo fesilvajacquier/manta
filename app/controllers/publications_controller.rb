@@ -62,7 +62,7 @@ class PublicationsController < ApplicationController
 
   def show
     # @publication.pictures.build
-    @picture  = Picture.new
+    @picture = Picture.new
   end
 
   private

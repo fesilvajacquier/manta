@@ -1,7 +1,8 @@
 class Admin::PublicationsController < ApplicationController
-  before_action :set_ngo, only: [:new, :create]
-  before_action :set_publication, only: [:edit, :update]
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_ngo, only: %i[new create]
+  before_action :set_publication, only: %i[edit update]
+
+  before_action :set_categories, only: %i[new edit create update]
 
   def new
     @publication = Publication.new
@@ -12,11 +13,10 @@ class Admin::PublicationsController < ApplicationController
   def create
     @publication = Publication.new(publication_params)
     @publication.pictures.first.imageable_id = 1
-    @publication.user = current_user
     @publication.ngo = @ngo
     authorize([:admin, @publication])
     if @publication.save
-      redirect_to admin_ngo_publications_path
+      redirect_to admin_ngo_path(@ngo)
     else
       render :new
     end
@@ -51,8 +51,8 @@ class Admin::PublicationsController < ApplicationController
     params.require(:publication).permit(
       :title,
       :description,
-      :indended_use,
-      :category,
+      :intended_use,
+      :category_id,
       :subcategory,
       :location,
       :created_at,
@@ -67,5 +67,3 @@ class Admin::PublicationsController < ApplicationController
     )
   end
 end
-
-
