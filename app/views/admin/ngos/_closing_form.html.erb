@@ -1,0 +1,25 @@
+<div class="modal fade" id="closingModal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Close publication with evidence</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [:admin, publication] do |f| %>
+          <%= f.input :closing_text %>
+          <%= f.simple_fields_for :pictures, @picture do |pf| %>
+            <%= pf.input :picture, as: :file %>
+            <%= pf.input :picture_cache, as: :hidden %>
+            <%= pf.input :imageable_id, as: :hidden, input_html: { value: @publication.id }  %>
+            <%= pf.input :imageable_type, as: :hidden, input_html: { value: @publication.class }  %>
+            <%= pf.input :category, as: :hidden, input_html: { value: 'closing' } %>
+          <% end %>
+          <%= f.submit 'Upload evidence', id: 'closingSubmit'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

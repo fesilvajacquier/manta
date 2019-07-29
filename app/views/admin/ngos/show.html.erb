@@ -2,33 +2,38 @@
 
   <div class="offers-wrapper">
     <% @ngo.publications.each do |pub| %>
-      <%= link_to publication_path(pub) do  %>
+    <%= link_to publication_path(pub) do  %>
 
 
-        <div class="card-product mt-3">
+    <div class="card-product mt-3">
 
-          <div class="card-product-infos">
-            <h2><%= pub.title %></h2>
-            <p><%= pub.description%></p>
-          </div>
+      <div class="card-product-infos">
+        <h2><%= pub.title %></h2>
+        <p><%= pub.description%></p>
+      </div>
 
 
-          <div>
-            <%= link_to "Edit", root_path, class:"button" %>
-            <%= link_to "Close", root_path, class:"button"  %>
-          </div>
-
+      <div>
+        <%= link_to "Edit", edit_admin_publication_path, class:"button" %>
+        <div class="report-ngo-button">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal">
+            Upload evidence
+          </button>
         </div>
+        <%= render 'closing_form' %>
+      </div>
+
+      </div>
 
       <% end %>
       <% end %>
-
+    </div>
     </div>
 
-  <div class="user-options text-center">
-    <%= link_to "My profile", root_path, class:"button space-btw-button" %>
-    <%= link_to "Manage members", root_path, class:"button "  %>
-    <%= link_to "Create publication", root_path, class:"button " %>
-  </div>
+    <div class="user-options text-center">
+      <%= link_to "My profile", root_path, class:"button space-btw-button" %>
+      <%= link_to "Manage members", root_path, class:"button "  %>
+      <%= link_to "Create publication", root_path, class:"button " %>
+    </div>
 
-</div>
+  </div>
