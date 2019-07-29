@@ -7,7 +7,6 @@ class PublicationsController < ApplicationController
     # raise
     if params[:search].present?
       @publications = policy_scope(Publication).search_publications(params[:search])
-      
       @markers = @publications.map do |publication|
         {
           lat: publication.latitude,
@@ -18,39 +17,33 @@ class PublicationsController < ApplicationController
     elsif params[:publication].present?
       # @publications = policy_scope(Publication).search_publications(params[:publication][:search]).where(status: params[:publication][:status].to_i)
       
-      # status = params[:publication][:status] != "" ? "AND status LIKE :status \ " : nil
+      status = params[:publication][:status] != "" ? "AND status = :status" : nil
+      category = params[:publication][:category_id] != "" ? "AND category_id = :category_id" : nil
       # location = params[:publication][:location] != "" ? "AND location @@ :location \ " : nil
-      # category = params[:publication][:category_id] != "" ? "AND category @@ :category" : nil
-      
-      # query = <<-SQL
-      # title @@ :search
-      # OR description @@ :search
-      # OR intended_use @@ :search
-      # #{status}
-      # #{location}
-      # #{category}
-      # SQL
-      
-      status = params[:publication][:status] != "" ? params[:publication][:status].to_i : nil
       location = params[:publication][:location] != "" ? params[:publication][:location] : nil
-      category = params[:publication][:category_id] != "" ? params[:publication][:category_id] : nil
       
-      # query = "\
-      # publications.title @@ :search \
-      # OR publications.description @@ :search \
-      # OR publications.intended_use @@ :search \
-      # #{status}
-      # #{location}
-      # #{category}
-      # "
-      # byebug
+      @query = <<-SQL
+      title @@ :search
+      OR description @@ :search
+      OR intended_use @@ :search
+      #{status}
+      #{category}
+      SQL
+      .squish
       
-      if status && location && category
-          @publications = policy_scope(Publication).where('status = ?', status).where('category_id = ?', category).near(location, 100)
+      if location
+        # byebug
+        @publications = policy_scope(Publication).where(@query, search: "#{params[:publication][:search]}",
+          status: "#{params[:publication][:status].to_i}",
+          category_id: "#{params[:publication][:category_id].to_i}").near(location, 100)
+      else
+          # byebug
+          @publications = policy_scope(Publication).where(@query, search: "#{params[:publication][:search]}",
+                                                  status: "#{params[:publication][:status].to_i}",
+                                                  category_id: "#{params[:publication][:category_id].to_i}")
       end
     else
-      @publications = policy_scope(Publication).geocoded # returns flats with coordinates
-
+      @publications = policy_scope(Publication).geocoded
       @markers = @publications.map do |publication|
         {
           lat: publication.latitude,
@@ -59,15 +52,19 @@ class PublicationsController < ApplicationController
       end
     end
   end
-
+  
   def show
     @picture = Picture.new
   end
-
+  
   private
-
+  
   def set_publication
     @publication = Publication.find(params[:id])
     authorize @publication
   end
 end
+
+# if status && location && category
+#     @publications = policy_scope(Publication).where('status = ?', status).where('category_id = ?', category).near(location, 100)
+# end
