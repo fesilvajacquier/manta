@@ -10,6 +10,11 @@
       <div class="card-product-infos">
         <h2><%= pub.title %></h2>
         <p><%= pub.description%></p>
+        <% if pub.offers.empty? %>
+          <%= link_to "No offers", class:"button space-btw-button" %>
+        <% else %>
+          <%= link_to "#{pub.offers.count} offer(s)", offer_path(pub.offers.last) %>
+        <% end %>
       </div>
 
 
@@ -31,7 +36,9 @@
     </div>
 
     <div class="user-options text-center">
-      <%= link_to "My profile", @ngo, class:"button space-btw-button" %>
+
+       <%= link_to "See offers", offers_path(@publication), class:"button space-btw-button" %>
+      <%= link_to "My profile", @ngo, class:"button" %>
       <%= link_to "Manage members", root_path, class:"button "  %>
       <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button " %>
     </div>
