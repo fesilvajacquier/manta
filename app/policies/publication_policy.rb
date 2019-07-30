@@ -8,8 +8,5 @@ class PublicationPolicy < ApplicationPolicy
   def show?
     true
   end
-  
-  # def create?
-  #   return true
-  # end
+
 end

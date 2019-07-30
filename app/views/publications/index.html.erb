@@ -1,6 +1,46 @@
-<p>publications</p>
-<ul>
-<% @publications.each do |p| %>
- <li><%= p.title %></li>
-<% end %>
-</ul>
+<div class="container my-5">
+  <h2 class="text-center">Publications</h2>
+  <div class="row">
+    <div class="col-3 px-4">
+      <%= simple_form_for :publication, url: publications_path, method: :get do |f| %>
+      <%= f.input :search, as: :hidden, input_html: { value: params[:search]}%>
+      <%= f.input :status, label: "Status", collection: Publication::STATUS.except(:archived)  %>
+      <%= f.input :location, label: "Location", input_html: { id: 'ngo_address'}%>
+      <%= f.input :category_id,
+          as: :grouped_select,
+          collection: @categories,
+          group_method: :children
+      %>
+      <%= f.button :submit, 'Filter', class: "btn btn-success"%>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <% @publications.each do |pub| %>
+        <%= link_to publication_path(pub) do  %>
+          <div class="card-product mt-3">
+            <div style="height:100%;width:120px;">
+              Picture placeholder
+              <% if pub.pictures.empty? %>
+                <%# cl_image_tag Picture.find_by(imageable_type: 'Ngo', imageable_id: pub.ngo.id, category: 'logo').picture %>
+              <% else %>
+                <%# cl_image_tag pub.pictures.first.picture %>
+              <% end %>
+            </div>
+            <div class="card-product-infos">
+              <h2><%= pub.title %></h2>
+              <p><%= pub.description[0..150]%>...</p>
+            </div>
+            <div class="card-product-infos">
+              <p> <%= pub.category.name %></p>
+              <% if pub.offers.empty? %>
+                <small>Be the fist one to help this amazing people</small>
+              <% else %>
+                <small> <%= pub.offers.count %> users are already helping! Join them!</small>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

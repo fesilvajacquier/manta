@@ -1,6 +1,7 @@
 class Admin::PublicationsController < ApplicationController
   before_action :set_ngo, only: %i[new create]
   before_action :set_publication, only: %i[edit update]
+
   before_action :set_categories, only: %i[new edit create update]
 
   def new
