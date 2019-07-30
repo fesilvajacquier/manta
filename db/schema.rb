@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_225942) do
     t.float "latitude"
     t.float "longitude"
     t.text "closing_text"
-    t.integer "status", default: 0
+    t.integer "status"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_publications_on_category_id"
     t.index ["ngo_id"], name: "index_publications_on_ngo_id"
