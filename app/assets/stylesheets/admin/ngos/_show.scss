@@ -1,6 +1,5 @@
 .offers-wrapper {
   flex: 3;
-
 }
 
 .user-options {
@@ -12,6 +11,9 @@
   }
  }
 
+.container > h1 {
+  font-size: 40px;
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
