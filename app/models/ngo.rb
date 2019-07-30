@@ -1,6 +1,6 @@
 class Ngo < ApplicationRecord
   belongs_to :user
-  
+
   has_many :publications, dependent: :destroy
   has_many :publications_as_owner, dependent: :destroy, foreign_key: 'ngo_id', class_name: 'Publication'
   has_many :publications_as_collaborator, dependent: :destroy, foreign_key: 'ngo_id', class_name: 'Publication'
@@ -20,8 +20,16 @@ class Ngo < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_ngos,
-                  against: %i[name description address],
+                  against: {
+                    name: 'A',
+                    description: 'B',
+                    address: 'C'
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  def is_stakeholder?(current_user)
+    current_user == user || ngo_members.include?(current_user)
+  end
 end

@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client'
 gem 'geocoder'
+gem 'gibbon'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -27,7 +28,7 @@ gem 'cloudinary', '~> 1.9.1'
 
 gem 'jquery-rails'
 gem 'social-share-button'
-
+gem 'ancestry'
 gem 'pusher'
 
 group :development do

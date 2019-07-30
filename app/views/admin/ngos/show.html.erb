@@ -2,33 +2,73 @@
 
   <div class="offers-wrapper">
     <% @ngo.publications.each do |pub| %>
-      <%= link_to publication_path(pub) do  %>
+    <%= link_to publication_path(pub) do  %>
 
 
-        <div class="card-product mt-3">
+    <div class="card-product mt-3">
 
-          <div class="card-product-infos">
-            <h2><%= pub.title %></h2>
-            <p><%= pub.description%></p>
-          </div>
+      <div class="card-product-infos">
+        <h2><%= pub.title %></h2>
+        <p><%= pub.description%></p>
+        <% if pub.offers.empty? %>
+          <%= link_to "No offers", class:"button space-btw-button" %>
+        <% else %>
+          <%= link_to "#{pub.offers.count} offer(s)", offer_path(pub.offers.last) %>
+        <% end %>
+      </div>
 
 
-          <div>
-            <%= link_to "Edit", root_path, class:"button" %>
-            <%= link_to "Close", root_path, class:"button"  %>
-          </div>
-
+      <div>
+        <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
+        <div class="report-ngo-button">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
+            Upload evidence
+          </button>
         </div>
+        <%= render 'publications/closing_form', publication: pub, picture: @picture %>
+      </div>
+
+      </div>
 
       <% end %>
       <% end %>
-
+    </div>
     </div>
 
-  <div class="user-options text-center">
-    <%= link_to "My profile", root_path, class:"button space-btw-button" %>
-    <%= link_to "Manage members", root_path, class:"button "  %>
-    <%= link_to "Create publication", root_path, class:"button " %>
+    <div class="user-options text-center">
+
+       <%= link_to "See offers", offers_path(@publication), class:"button space-btw-button" %>
+      <%= link_to "My profile", @ngo, class:"button" %>
+
+      <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button " %>
+    </div>
+
   </div>
 
+
+
+<ul id="ngo-members">
+  <% @ngo_members.each do |ngo_member| %>
+    <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
+  <% end %>
+</ul>
+
+<button type="button" class="button" data-toggle="modal" data-target="#closingModal-ngo-member">
+  Manage members
+</button>
+
+<div class="modal fade" id="closingModal-ngo-member" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Close publication with evidence</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-add-member-modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'ngo_members_form', ngo: @ngo, ngo_member: @ngo_member %>
+      </div>
+    </div>
+  </div>
 </div>

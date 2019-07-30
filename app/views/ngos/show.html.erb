@@ -28,7 +28,7 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
-        <div class="ngo-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @ngo.pictures.first.picture, crop: :fill %>');">
+        <!-- <div class="ngo-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<#%= cl_image_path @ngo.pictures.first.picture, crop: :fill %>');"> -->
         </div>
         <div class="report-ngo-button">
           <button type="button" class="button space-btw-button" data-toggle="modal" data-target="#reportModal">

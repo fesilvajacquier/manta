@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
+  after_create :send_welcome_email, :subscribe_to_newsletter
 
-  # after_create :send_welcome_email
   has_many :ngos_as_owner, dependent: :destroy, foreign_key: 'user_id', class_name: 'Ngo'
 
   has_many :ngo_members, dependent: :destroy
@@ -32,7 +33,7 @@ class User < ApplicationRecord
   # DONE offers_as_owner
   # offers_as_collaborator
   # DONE offers_as_donor
-  
+
   def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -44,7 +45,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  
+
   def avatar
     if token.present?
       response = URI.open("https://www.googleapis.com/oauth2/v1/userinfo?access_token=#{token}").read
@@ -53,7 +54,7 @@ class User < ApplicationRecord
       return "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg"
     end
   end
-  
+
   def identifier
     # if (first_name).nil?
     email
@@ -61,7 +62,7 @@ class User < ApplicationRecord
     #   return "#{first_name.capitalize}"
     # end
   end
-  
+
   # def last_offer
   #   last_offers = []
   #   last_offers += offers_as_donor.last
@@ -75,10 +76,14 @@ class User < ApplicationRecord
   #     nil
   #   end
   # end
-  
+
   private
-  
+
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
+  end
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
   end
 end

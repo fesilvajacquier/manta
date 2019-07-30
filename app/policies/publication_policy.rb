@@ -1,15 +1,12 @@
 class PublicationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope
     end
   end
 
   def show?
     true
   end
-  
-  # def create?
-  #   return true
-  # end
+
 end

@@ -8,7 +8,6 @@ class CreatePublications < ActiveRecord::Migration[5.2]
       t.string :category
       t.string :sub_category
       t.string :location
-
       t.timestamps
     end
   end

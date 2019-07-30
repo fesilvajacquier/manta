@@ -1,0 +1,3 @@
+<li id="ngo-member-<%= ngo_member.id %>">
+  <%= ngo_member.user.first_name %> - <%= link_to "x", admin_ngo_member_path(ngo_member), method: :delete, remote: true, data: {confirm: "Are you sure?"}%>
+</li>
