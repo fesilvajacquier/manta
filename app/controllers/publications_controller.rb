@@ -40,6 +40,12 @@ class PublicationsController < ApplicationController
   
   def show
     @picture = Picture.new
+    @markers = [@publication].map do |_publication|
+      {
+        lat: @publication.latitude,
+        lng: @publication.longitude
+      }
+    end
   end
   
   private
