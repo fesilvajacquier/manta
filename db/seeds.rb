@@ -40,6 +40,9 @@ wikimedia_foundation = Ngo.new(name:'wikimedia foundation',
                                 bank_account: '2')
 wikimedia_foundation.user = pin
 wikimedia_foundation.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo1_logo_nkwdfu.png"
+picture.imageable = wikimedia_foundation
 
 
 save_children = Ngo.new(name:'save children',
@@ -52,6 +55,9 @@ save_children = Ngo.new(name:'save children',
                  bank_account:'3')
 save_children.user = pin
 save_children.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo2_logo_b2gvak.png"
+picture.imageable = save_children
 
 cambia = Ngo.new(name:'Cambia',
                  address:'Av. del Libertador 4400, M5500 Mendoza, Argentina',
@@ -62,6 +68,9 @@ cambia = Ngo.new(name:'Cambia',
                  bank_account:'4')
 cambia.user = pin
 cambia.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo3_logo_tbtape.png"
+picture.imageable = cambia
 
 barefoot_college = Ngo.new(name:'barefoot college',
                  address:'Congreso de Tucumán 141, T4000IEC San Miguel de Tucumán, Argentina',
@@ -72,6 +81,9 @@ barefoot_college = Ngo.new(name:'barefoot college',
                  bank_account:'5')
 barefoot_college.user = fer
 barefoot_college.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo4_logo_fcozrr.png"
+picture.imageable = barefoot_college
 
 code_for_america = Ngo.new(name: 'code for america',
                  address:'España 558, A4400 Salta, Argentina',
@@ -81,7 +93,9 @@ code_for_america = Ngo.new(name: 'code for america',
                  bank_account:'6')
 code_for_america.user = fer
 code_for_america.save!
-
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo5_logo_xing7d.png"
+picture.imageable = code_for_america
 
 human_rights_watch = Ngo.new(name:'human rights watch',
                  address:'Av. Roque Perez, Posadas, Argentina',
@@ -89,8 +103,12 @@ human_rights_watch = Ngo.new(name:'human rights watch',
                  website:'https://www.hrw.org',
                  description:'Human Rights Watch investigates and reports on abuses happening in all corners of the world. We are roughly 450 people of 70-plus nationalities who are country experts, lawyers, journalists, and others who work to protect the most at risk, from vulnerable minorities and civilians in wartime, to refugees and children in need. We direct our advocacy towards governments, armed groups and businesses, pushing them to change or enforce their laws, policies and practices. To ensure our independence, we refuse government funding and corporate ties. We partner with organizations large and small across the globe to protect embattled activists and to help hold abusers to account and bring justice to victims.',
                  bank_account:'7')
+
 human_rights_watch.user = fer
 human_rights_watch.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo6_logo_uj4pdk.png"
+picture.imageable = human_rights_watch
 
 care_international = Ngo.new(name:'Care international',
                  address:'Pelagio B. Luna 811, F5300 La Rioja, Argentina',
@@ -101,6 +119,9 @@ care_international = Ngo.new(name:'Care international',
                  )
 care_international.user = yuyu
 care_international.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492952/ngo_pic/ngo7_logo_w0epm3.png"
+picture.imageable = care_international
 
 aflatoun = Ngo.new(name:'Aflatoun',
                  address:'Paseo Jesús de Galindez 0, B7600 Mar del Plata, Buenos Aires',
@@ -110,6 +131,9 @@ aflatoun = Ngo.new(name:'Aflatoun',
                  bank_account:'9')
 aflatoun.user = yuyu
 aflatoun.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo8_logo_rviuch.png"
+picture.imageable = aflatoun
 
 global_vision_international_charitable_trust = Ngo.new(name:'Global Vision Internation Chariable Trust',
                  address:'Av. del Libertador, El Calafate, Santa Cruz, Argentina',
@@ -122,6 +146,9 @@ global_vision_international_charitable_trust = Ngo.new(name:'Global Vision Inter
                  bank_account:'10')
 global_vision_international_charitable_trust.user = orlando
 global_vision_international_charitable_trust.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo9_logo_wyppwt.jpg"
+picture.imageable = global_vision_international_charitable_trust
 
 habitat_for_humanity = Ngo.new(name:'Habitat for Humanity',
                  address:'Batalla de Cepeda 100, E3280 Colón, Entre Ríos, Argentina',
@@ -131,6 +158,9 @@ habitat_for_humanity = Ngo.new(name:'Habitat for Humanity',
                  bank_account:'11')
 habitat_for_humanity.user = orlando
 habitat_for_humanity.save!
+picture = Picture.new
+picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo10_logo_vdctj2.png"
+picture.imageable = habitat_for_humanity
 
 # ngo_member
 puts 'creating ngo_members'
