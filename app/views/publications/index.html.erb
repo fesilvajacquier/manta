@@ -3,7 +3,11 @@
   <div class="row">
     <div class="col-3 px-4">
       <%= simple_form_for :publication, url: publications_path, method: :get do |f| %>
-      <%= f.input :search, as: :hidden, input_html: { value: params[:search]}%>
+      <% if params[:search] %>
+        <%= f.input :search, as: :hidden, input_html: { value: params[:search]}%>
+      <% else %>
+        <%= f.input :search, as: :hidden, input_html: { value: params[:publication][:search]}%>
+      <% end %>
       <%= f.input :status, label: "Status", collection: Publication::STATUS.except(:archived)  %>
       <%= f.input :location, label: "Location", input_html: { id: 'ngo_address'}%>
       <%= f.input :category_id,
@@ -44,3 +48,5 @@
     </div>
   </div>
 </div>
+
+<% console %>

@@ -11,6 +11,7 @@ puts 'detroying all the instances'
 Message.destroy_all
 Offer.destroy_all
 Publication.destroy_all
+Category.destroy_all
 Report.destroy_all
 NgoMember.destroy_all
 Ngo.destroy_all
