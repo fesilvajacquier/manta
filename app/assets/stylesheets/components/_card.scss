@@ -1,15 +1,3 @@
-
-
-.card{
-  width: 300px;
-  height: 400px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  margin: 0px;
-} h2 {
-      text-align: center;
-}
 .hover-yellow {
   &:hover {
     border-top: 15px solid #F2D388 !important;
@@ -20,7 +8,6 @@
   }
 
 }
-
 
 .card-small {
   margin: auto;
@@ -99,4 +86,49 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.box {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 0px;
+  width: 320px;
+  height: 340px;
+  cursor: pointer;
+  text-align: center;
+  transition-property: background, border-radius;
+  transition-duration: .5s;
+  transition-timing-function: linear;
+  img {
+    height: 120px;
+    object-fit: cover;
+    margin: 10px 0px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(240, 240, 240);
+}
+
+
+
+.box.card-green {
+  background-color: #55B8A9;
+}
+
+.box.card-yellow {
+  background-color: #F2D388;
+}
+
+.box.card-salmon {
+  background-color: #D98D7C ;
+}
+
+.box:hover {
+  background: #744340;
+  color: white;
+  border-radius: 50%;
+  flex-direction: column-reverse;
+  transition-duration: .5s;
 }
