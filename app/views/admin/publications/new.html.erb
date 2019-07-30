@@ -1,1 +1,13 @@
-<%= render'form', ngo: @ngo, publication: @publication, categories: @categories %>
+<div class="container-fluid new-ngo-wrapper">
+  <div class="row mx-5 my-5 new-ngo-form-wrapper">
+    <div class="col-sm-12 col-md-6 new-ngo-image" style="background-image: url('<%= asset_path("new-ngo-form.jpg") %>')";>,
+      <div class="ngo-img-form">
+        <%= image_tag asset_path("manta.png"), class:"" %><span>MANTA</span>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 form-style">
+        <h2 class="text-center ngo-form-heading"><strong>To post my <span class="ngo-form-title">NGO's request</span></strong></h2>
+         <%= render'form', ngo: @ngo, publication: @publication, categories: @categories %>
+    </div>
+   </div>
+</div>
