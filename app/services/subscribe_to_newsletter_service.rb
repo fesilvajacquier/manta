@@ -6,6 +6,8 @@ class SubscribeToNewsletterService
   end
 
   def call
+    return nil if @gibbon.lists(@list_id).members?
+
     @gibbon.lists(@list_id).members.create(
       body: {
         email_address: @user.email,
