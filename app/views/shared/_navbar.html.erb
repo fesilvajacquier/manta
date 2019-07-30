@@ -37,6 +37,18 @@
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <% if signed_in? %>
           <%= link_to "My offers", offers_path, class: "dropdown-item" %>
+          <% unless current_user.ngos_as_owner.empty? %>
+            <span class="dropdown-item">Your NGOs</span>
+            <% current_user.ngos_as_owner.each do |ngo| %>
+              <%= link_to "> #{ngo.name.capitalize}", admin_ngo_path(ngo), class: "dropdown-item" %>
+            <% end %>
+          <% end %>
+          <% unless current_user.ngos_as_collaborator.empty? %>
+            <span class="dropdown-item">Your NGOs as a collaborator</span>
+            <% current_user.ngos_as_collaborator.each do |ngo| %>
+              <%= link_to "> #{ngo.name.capitalize}", admin_ngo_path(ngo), class: "dropdown-item" %>
+            <% end %>
+          <% end %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% else %>
             <%= link_to "Sign in", user_session_path, class: "dropdown-item" %>
