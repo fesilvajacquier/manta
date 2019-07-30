@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  after_create :send_welcome_email, :subscribe_to_newsletter
+  # after_create :send_welcome_email, :subscribe_to_newsletter
 
   has_many :ngos_as_owner, dependent: :destroy, foreign_key: 'user_id', class_name: 'Ngo'
 

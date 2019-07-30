@@ -5,7 +5,7 @@ class Offer < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :pictures, as: :imageable
   validates :user_id, :publication_id, presence: true
-  after_create :send_new_offer_email
+  # after_create :send_new_offer_email
 
   private
 

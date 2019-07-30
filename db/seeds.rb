@@ -8,6 +8,7 @@
 
 # destroying previous instances
 puts 'detroying all the instances'
+Picture.destroy_all
 Message.destroy_all
 Offer.destroy_all
 Publication.destroy_all
@@ -43,72 +44,84 @@ wikimedia_foundation.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo1_logo_nkwdfu.png"
 picture.imageable = wikimedia_foundation
+picture.category = 0
+picture.save!
 
 
 save_children = Ngo.new(name:'save children',
-                 address:'Av. Hipólito Yrigoyen 511, X5004 Córdoba, Argentina',
-                 email:'supportercare@savechildren.org',
-                 website:'https://www.savethechildren.org',
-                 description:'Transforming Lives and Futures
-                  All across the globe, children are dying from preventable causes, missing out on education due to poverty or gender, suffering from violence, exploitation and neglect, and are vulnerable in times of crisis. In every corner of the world, children need a strong voice to stand up for them, work on their behalf and make their lives better.
-                  Save the Children is the voice for vulnerable children. We’re on the ground in 120 countries, working to reach every last child through international programs that focus on health, education, protection and disaster relief. Together, we’re changing children’s lives and the future we all share.',
-                 bank_account:'3')
+  address:'Av. Hipólito Yrigoyen 511, X5004 Córdoba, Argentina',
+  email:'supportercare@savechildren.org',
+  website:'https://www.savethechildren.org',
+  description:'Transforming Lives and Futures
+  All across the globe, children are dying from preventable causes, missing out on education due to poverty or gender, suffering from violence, exploitation and neglect, and are vulnerable in times of crisis. In every corner of the world, children need a strong voice to stand up for them, work on their behalf and make their lives better.
+  Save the Children is the voice for vulnerable children. We’re on the ground in 120 countries, working to reach every last child through international programs that focus on health, education, protection and disaster relief. Together, we’re changing children’s lives and the future we all share.',
+  bank_account:'3')
 save_children.user = pin
 save_children.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo2_logo_b2gvak.png"
 picture.imageable = save_children
-
+picture.category = 0
+picture.save!
+  
 cambia = Ngo.new(name:'Cambia',
-                 address:'Av. del Libertador 4400, M5500 Mendoza, Argentina',
+                address:'Av. del Libertador 4400, M5500 Mendoza, Argentina',
                  email:'cambia@cambia.org',
                  website:'https://cambia.org',
                  description:'Cambia is a non profit social enterprise, creating new tools, technologies, and paradigms to promote change and enable innovation.
-                  Our mission is to democratize innovation: to create a more equitable and inclusive capability to solve problems using science and technology. Our institutional ethos is built around an awareness of the need and opportunity for local commitment to achieving lasting solutions to food security, agricultural, public health and environmental problems.',
+                 Our mission is to democratize innovation: to create a more equitable and inclusive capability to solve problems using science and technology. Our institutional ethos is built around an awareness of the need and opportunity for local commitment to achieving lasting solutions to food security, agricultural, public health and environmental problems.',
                  bank_account:'4')
 cambia.user = pin
 cambia.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo3_logo_tbtape.png"
 picture.imageable = cambia
-
+picture.category = 0
+picture.save!
+                 
 barefoot_college = Ngo.new(name:'barefoot college',
-                 address:'Congreso de Tucumán 141, T4000IEC San Miguel de Tucumán, Argentina',
-                 email:'volunteer@barefootcollege.org',
-                 website:'https://www.barefootcollege.org',
-                 description:"The Social Work and Research Centre ('SWRC'), widely known as the Barefoot College[1] is a voluntary organisation working in the fields of education, skill development, health, drinking water, women empowerment and electrification through solar power for the upliftment of rural people,which was founded by Bunker Roy in 1972. It is registered under Friends of Tilonia Inc.
-                 The Villagers' Barefoot College in the village of Tilonia gives lessons in reading, writing and accounting to adults and children especially the drop-outs, cop-outs and wash-outs. Girls heavily outnumber boys in the night schools.In 2008 there were approximately 3,000 children attending 150 night schools" ,
-                 bank_account:'5')
+                  address:'Congreso de Tucumán 141, T4000IEC San Miguel de Tucumán, Argentina',
+                  email:'volunteer@barefootcollege.org',
+                  website:'https://www.barefootcollege.org',
+                  description:"The Social Work and Research Centre ('SWRC'), widely known as the Barefoot College[1] is a voluntary organisation working in the fields of education, skill development, health, drinking water, women empowerment and electrification through solar power for the upliftment of rural people,which was founded by Bunker Roy in 1972. It is registered under Friends of Tilonia Inc.
+                  The Villagers' Barefoot College in the village of Tilonia gives lessons in reading, writing and accounting to adults and children especially the drop-outs, cop-outs and wash-outs. Girls heavily outnumber boys in the night schools.In 2008 there were approximately 3,000 children attending 150 night schools" ,
+                  bank_account:'5')
 barefoot_college.user = fer
 barefoot_college.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo4_logo_fcozrr.png"
 picture.imageable = barefoot_college
+picture.category = 0
+picture.save!
 
 code_for_america = Ngo.new(name: 'code for america',
-                 address:'España 558, A4400 Salta, Argentina',
-                 email:'info@codeforamerica.org',
-                 website:'https://www.codeforamerica.org/about-us',
-                 description:'We are a network of people making government work for the people, by the people, in the digital age. How do we get there? With government services that are simple, effective, and easy to use, working at scale to help all Americans, starting with the people who need them most.',
-                 bank_account:'6')
+                          address:'España 558, A4400 Salta, Argentina',
+                          email:'info@codeforamerica.org',
+                          website:'https://www.codeforamerica.org/about-us',
+                          description:'We are a network of people making government work for the people, by the people, in the digital age. How do we get there? With government services that are simple, effective, and easy to use, working at scale to help all Americans, starting with the people who need them most.',
+                          bank_account:'6')
 code_for_america.user = fer
 code_for_america.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492950/ngo_pic/ngo5_logo_xing7d.png"
 picture.imageable = code_for_america
+picture.category = 0
+picture.save!
 
 human_rights_watch = Ngo.new(name:'human rights watch',
-                 address:'Av. Roque Perez, Posadas, Argentina',
+                  address:'Av. Roque Perez, Posadas, Argentina',
                  email:'tilianm@hrw.org',
                  website:'https://www.hrw.org',
                  description:'Human Rights Watch investigates and reports on abuses happening in all corners of the world. We are roughly 450 people of 70-plus nationalities who are country experts, lawyers, journalists, and others who work to protect the most at risk, from vulnerable minorities and civilians in wartime, to refugees and children in need. We direct our advocacy towards governments, armed groups and businesses, pushing them to change or enforce their laws, policies and practices. To ensure our independence, we refuse government funding and corporate ties. We partner with organizations large and small across the globe to protect embattled activists and to help hold abusers to account and bring justice to victims.',
                  bank_account:'7')
-
+                 
 human_rights_watch.user = fer
 human_rights_watch.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo6_logo_uj4pdk.png"
 picture.imageable = human_rights_watch
+picture.category = 0
+picture.save!
 
 care_international = Ngo.new(name:'Care international',
                  address:'Pelagio B. Luna 811, F5300 La Rioja, Argentina',
@@ -116,12 +129,14 @@ care_international = Ngo.new(name:'Care international',
                  website:'https://www.care-international.org',
                  description:'CARE is a major international humanitarian agency delivering emergency relief and long-term international development projects. Founded in 1945, CARE is nonsectarian, impartial, and non-governmental. It is one of the largest and oldest humanitarian aid organizations focused on fighting global poverty',
                  bank_account:'8'
-                 )
+                )
 care_international.user = yuyu
 care_international.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492952/ngo_pic/ngo7_logo_w0epm3.png"
 picture.imageable = care_international
+picture.category = 0
+picture.save!
 
 aflatoun = Ngo.new(name:'Aflatoun',
                  address:'Paseo Jesús de Galindez 0, B7600 Mar del Plata, Buenos Aires',
@@ -134,6 +149,8 @@ aflatoun.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo8_logo_rviuch.png"
 picture.imageable = aflatoun
+picture.category = 0
+picture.save!
 
 global_vision_international_charitable_trust = Ngo.new(name:'Global Vision Internation Chariable Trust',
                  address:'Av. del Libertador, El Calafate, Santa Cruz, Argentina',
@@ -149,6 +166,8 @@ global_vision_international_charitable_trust.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo9_logo_wyppwt.jpg"
 picture.imageable = global_vision_international_charitable_trust
+picture.category = 0
+picture.save!
 
 habitat_for_humanity = Ngo.new(name:'Habitat for Humanity',
                  address:'Batalla de Cepeda 100, E3280 Colón, Entre Ríos, Argentina',
@@ -161,6 +180,8 @@ habitat_for_humanity.save!
 picture = Picture.new
 picture.remote_picture_url = "https://res.cloudinary.com/dsijhz45l/image/upload/v1564492951/ngo_pic/ngo10_logo_vdctj2.png"
 picture.imageable = habitat_for_humanity
+picture.category = 0
+picture.save!
 
 # ngo_member
 puts 'creating ngo_members'
@@ -436,8 +457,3 @@ offer5 = Offer.create!(user_id: gerardo.id, publication_id: pub_3.id)
 # message
 # puts 'creating messages'
 # Message.create!(user: orlando, offer: pc_offer, content: 'somme content')
-
-# pictures
-# puts 'creating pictures'
-
-
