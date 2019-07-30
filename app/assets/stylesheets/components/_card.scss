@@ -7,18 +7,32 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin: 0px;
+} h2 {
+      text-align: center;
+}
+.hover-yellow {
+  &:hover {
+    border-top: 15px solid #F2D388 !important;
+    color: #F2D388 !important;
+    i {
+      color: #F2D388 !important;
+    }
+  }
+
 }
 
+
 .card-small {
+  margin: auto;
   width: 170px;
   height: 170px;
-  background: white;
+  background: #282F33;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #EBEBEB;
-  color: #333;
+  border-top: 15px solid #C4C4C4;
+  color: #C4C4C4;
   h2 {
     font-size: 15px;
     text-align: center;
@@ -27,20 +41,21 @@
   i {
     font-size: 50px;
     padding-bottom: 5px;
-    color: #3483FA;
+    color: #C4C4C4;
   }
   &:hover {
-    background-color: #3483FA !important;
-    color: white;
+    border-top: 15px solid #D98D7C;
+    color: #D98D7C;
     i {
-      color: white;
+      color: #D98D7C;
     }
   }
 }
 
 .card > img {
-  width: 100px;
-  height: 200px;
+     width: 121px;
+    height: 188px;
+    margin: auto;
 }
 
 .card-category {
@@ -48,7 +63,7 @@
 }
 
 .card-category:hover {
-  background-color: #3483FA !important;
+  background-color: #D98D7C !important;
   color: white !important;
   text-decoration: none;
 }
