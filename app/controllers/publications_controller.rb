@@ -4,7 +4,6 @@ class PublicationsController < ApplicationController
 
   def index
     @categories = Category.roots
-    # raise
     if params[:search].present?
       @publications = policy_scope(Publication).search_publications(params[:search])
       @markers = @publications.map do |publication|
@@ -15,33 +14,14 @@ class PublicationsController < ApplicationController
       end
       
     elsif params[:publication].present?
-      # @publications = policy_scope(Publication).search_publications(params[:publication][:search]).where(status: params[:publication][:status].to_i)
+      status = params[:publication][:status]
+      category_id = params[:publication][:category_id]
+      location = params[:publication][:location]
       
-      status = params[:publication][:status] != "" ? "AND status = :status" : nil
-      category = params[:publication][:category_id] != "" ? "AND category_id = :category_id" : nil
-      # location = params[:publication][:location] != "" ? "AND location @@ :location \ " : nil
-      location = params[:publication][:location] != "" ? params[:publication][:location] : nil
-      
-      @query = <<-SQL
-      title @@ :search
-      OR description @@ :search
-      OR intended_use @@ :search
-      #{status}
-      #{category}
-      SQL
-      .squish
-      
-      if location
-        # byebug
-        @publications = policy_scope(Publication).where(@query, search: "#{params[:publication][:search]}",
-          status: "#{params[:publication][:status].to_i}",
-          category_id: "#{params[:publication][:category_id].to_i}").near(location, 100)
-      else
-          # byebug
-          @publications = policy_scope(Publication).where(@query, search: "#{params[:publication][:search]}",
-                                                  status: "#{params[:publication][:status].to_i}",
-                                                  category_id: "#{params[:publication][:category_id].to_i}")
-      end
+      @publications = policy_scope(Publication).search_publications(params[:publication][:search])
+      @publications = @publications.where(status: status.to_i) if status.present?
+      @publications = @publications.where(category_id: category_id.to_i) if category_id.present?
+      @publications = @publications.near(location, 10) if location.present?
     else
       @publications = policy_scope(Publication).geocoded
       @markers = @publications.map do |publication|
@@ -64,7 +44,3 @@ class PublicationsController < ApplicationController
     authorize @publication
   end
 end
-
-# if status && location && category
-#     @publications = policy_scope(Publication).where('status = ?', status).where('category_id = ?', category).near(location, 100)
-# end
