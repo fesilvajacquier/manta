@@ -27,9 +27,12 @@
       <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
         Carrousel placeholder
       </div>
-      <div style="width: 300px; height: 200px; border: 2px black solid;">
-        Map placeholder
-      </div>
+      <div
+        id="map"
+        style="width: 300px; height: 300px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
     </div>
     <div class="col-sm-12 col-md-8 py-4">
       <div class="d-flex justify-content-between align-items-center pb-3">
