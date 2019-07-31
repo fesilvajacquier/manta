@@ -1,25 +1,32 @@
 <div class="offer_index">
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-as-donor-tab" data-toggle="pill" href="#pills-as-donor" role="tab" aria-controls="pills-as-donor" aria-selected="true">Offers as a donor</a>
+  <ul class="nav nav-pills mb-3 list-inline" id="pills-tab" role="tablist">
+    <li class="nav-item list-inline-item">
+      <a class="active" id="pills-as-donor-tab" data-toggle="pill" href="#pills-as-donor" role="tab" aria-controls="pills-as-donor" aria-selected="true">Offers as a donor</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-as-ngo-tab" data-toggle="pill" href="#pills-as-ngo" role="tab" aria-controls="pills-as-ngo" aria-selected="false">Offers as NGO</a>
+    <li class="nav-item list-inline-item">
+      <a class="" id="pills-as-ngo-tab" data-toggle="pill" href="#pills-as-ngo" role="tab" aria-controls="pills-as-ngo" aria-selected="false">Offers as NGO</a>
     </li>
   </ul>
+  <div class="offer-search">
+    <i class="fas fa-search"></i>
+    <input type="text" class="offer-search-input" placeholder="Search for">
+    <i class="fas fa-book-open"></i>
+  </div>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-as-donor" role="tabpanel" aria-labelledby="pills-as-donor-tab">
       <% current_user.offers_as_donor.each do |offer| %>
-        <%= link_to offer_path(offer) do %>
-          <div class="offer_tab p-3 d-flex justify-content-between align-items-center">
-            <div class="offer_img">
+        <%= link_to offer_path(offer), class:"offer-link" do %>
+          <div class="offer_tab p-3 d-flex justify-content-between align-items-center offer_information <%= offer.id.to_s == params[:id] ? 'offer_information-selected' : '' %>">
+            <div class="offer_img" style="background-image:url('https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2');">
             </div>
-            <div class="offer_detail">
-              <h4><%= offer.publication.ngo.name %></h4>
-              <p><%= offer.publication.title %></p>
-            </div>
-            <div class="offer_date">
-              <span><small><%= offer.created_at %></small></span>
+            <div class="">
+              <div class="offer_detail">
+                <h4><%= offer.publication.ngo.name.upcase %></h4>
+                <p><%= offer.publication.title %></p>
+              </div>
+              <div class="offer_date">
+                <span><small><%= offer.created_at.strftime("%A, %b %d") %></small></span>
+              </div>
             </div>
           </div>
         <% end %>
