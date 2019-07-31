@@ -9,13 +9,13 @@
   <div class="chat-box" data-booking_id="<%= @offer.id %>" data-current_user="<%= current_user.id %>">
     <% if @messages.empty? %>
     <div class="chat-bubble-wrapper">
-      <div class="chat-bubble parking-share">
+      <div class="chat-bubble parking-share d-flex">
         <div class="chat-username">Parking Share</div>
-        <div class="chat-message">Your chat is here!</div>
+          <div class="chat-timestamp him">
+            <%= Time.now.strftime("%b %e, %l:%M %p") %>
+          </div>
       </div>
-      <div class="chat-timestamp him">
-        <%= Time.now.strftime("%m-%e-%Y %H:%M") %>
-      </div>
+         <div class="chat-message">Your chat is here!</div>
     </div>
     <% end %>
     <% @messages.each do |message| %>
