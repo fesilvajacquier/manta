@@ -13,10 +13,10 @@
     border-top: 1px solid rgba(0,0,0,0.1);
     background-color: white;
     .chat-bubble-wrapper {
-
       .chat-timestamp {
-        &.me {
-          font-size: 2px !important;
+        &.him {
+          font-size: 12px !important;
+          margin-top: 13px;
         }
       }
       .chat-bubble {
@@ -27,12 +27,15 @@
         }
         .chat-username {
           margin-right: 8px;
-        }
-        .chat-message {
+          margin-top: 9px;
         }
       }
     }
   }
+  .chat-message {
+    margin-left: 39px;
+  }
+
     #chat-form {
       width: 100%;
     #message {
