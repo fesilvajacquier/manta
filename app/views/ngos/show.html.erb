@@ -1,5 +1,5 @@
 <div class="container pub-style <%= %w[bt-clean bt-butter bt-salmon].sample %>">
-    <div class="row">
+    <div class="row justify-content-around">
       <div class="col-sm-12 col-md-4 py-4 d-flex flex-column align-items-center">
         <div class="align-items-center justify-content-center d-flex" style="width: 300px; height: 365px;">
           <%= cl_image_tag(Picture
@@ -12,11 +12,22 @@
           </button>
           <%= render 'report_form' %>
         </div>
+        <div>
+          <hr>
+          <h5 class="sub-header">Latest publications by <%= @ngo.name.capitalize %></h3>
+          <ul class='mb-3 pl-5 pt-3'>
+            <% @ngo.publications.last(5).each do |pub| %>
+              <li>
+                <strong><%= link_to pub.title, pub, class: 'link' %></strong>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
       <div class="col-sm-12 col-md-6 my-1 p-1 new-ngo-wrapper">
         <div class="ngo-title-wrapper">
           <div class="ngo-title">
-            <h1><%=@ngo.name%></h1>
+            <h1><%= @ngo.name.capitalize %></h1>
             <h5><strong>Location:</strong> <%=@ngo.address%></h4>
           </div>
          </div>
@@ -32,7 +43,7 @@
         </div>
         <div
           id="map"
-          style="height: 200px;"
+          style="height: 300px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
           class="my-5"
