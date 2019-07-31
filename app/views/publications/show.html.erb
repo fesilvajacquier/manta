@@ -21,9 +21,13 @@
 <% end %>
 
 
-<div class="container py-5">
+<div class="container pub-style <%= case @publication.category.parent.name
+                          when 'Donate' then 'bt-clean'
+                          when 'Goods' then 'bt-butter'
+                          when 'Services' then 'bt-salmon'
+                          end %>">
   <div class="row">
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12 col-md-4 py-4 d-flex flex-column align-items-center">
       <% if @publication.pictures.empty? %>
         <div class="align-items-center justify-content-center d-flex" style="width: 300px; height: 365px;">
           <%= cl_image_tag(Picture
@@ -31,11 +35,12 @@
           .picture, width: 300, height: 365, crop: 'fit') %>
         </div>
       <% else %>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
           <div class="carousel-inner">
             <% @publication.pictures.each do |pic| %>
               <div class="carousel-item active">
-                <%= cl_mage_tag pic.picture, class: 'd-block w-100' %>
+                <%# cl_image_tag pic.picture, class: 'd-block w-100' %>
+                <img class="d-block w-100" src="<%= pic.picture.url %>" alt="Slide pic"> 
               </div>
             <% end %>
           </div>
@@ -54,9 +59,17 @@
         style="width: 300px; height: 300px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        class="my-5"
       ></div>
+      <div>
+        <h3 class="sub-header">Be a pal ...</h3>
+        <p>... share this pub on social media</p>
+        <div class="text-center">
+          <%= social_share_button_tag(@publication.title, desc: @publication.description) %>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-8 pub-style">
+    <div class="col-sm-12 col-md-8">
       <div class="d-flex justify-content-between align-items-center pb-3">
         <h2> <%= @publication.title %> </h2>
         <%= social_share_button_tag(@publication.title, desc: @publication.description) %>
@@ -85,19 +98,37 @@
         </div>
       <% end %>
       <% if @publication.ngo.is_stakeholder?(current_user) %>
-        <div class="report-ngo-button">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#closingModal-<%= @publication.id%>">
+        <div class="my-5">
+          <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#closingModal-<%= @publication.id%>">
             Upload evidence
           </button>
         </div>
         <%= render 'publications/closing_form', publication: @publication, picture: @picture %>
       <% else %>
-        <div class="report-ngo-button">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#offerModal">
+        <div class="my-5">
+          <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#offerModal">
             I can help!
           </button>
         </div>
       <% end %>
+      <hr>
+      <h5 class="sub-header">Other publications by this NGO</h3>
+      <ul>
+        <% @publication.ngo.publications.last(5).each do |pub| %>
+          <li>
+            <strong><%= link_to pub.title, pub, class: 'link' %></strong>
+          </li>
+        <% end %>
+      </ul>
+      <hr>
+      <h5 class="sub-header">Other publications in this category</h3>
+      <ul>
+        <% @publication.category.publications.last(5).each do |pub| %>
+          <li>
+            <strong><%= link_to pub.title, pub, class: 'link' %></strong> posted by <strong><%= link_to pub.ngo.name %></strong>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
