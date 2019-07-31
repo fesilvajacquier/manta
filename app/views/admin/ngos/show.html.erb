@@ -4,20 +4,24 @@
 <div class="d-flex align-items-top offers-display">
   <div class="offers-wrapper">
     <% @ngo.publications.each do |pub| %>
-      <%= link_to publication_path(pub) do  %>
-        <div class="card-product mt-3 ">
+        <div class="card-product mt-3 <%= case pub.category.parent.name
+                                          when 'Donate' then 'top-clean'
+                                          when 'Goods' then 'top-butter'
+                                          when 'Services' then 'top-salmon'
+                                          end
+                                           %>">
+       <%= link_to publication_path(pub) do  %>
           <div class="card-product-infos">
             <h2><%= pub.title %></h2>
             <p><%= pub.description%></p>
-            <i class="fas fa-hand-holding-heart"></i>
             <% if pub.offers.empty? %>
-              <%= link_to "No offer" %>
+              <p><i class="fas fa-hand-holding-heart"></i> No offer</p>
             <% else %>
-              <p><%= link_to "#{pub.offers.count} offer(s)",offer_path(pub.offers.last) %></p>
+              <p> <i class="fas fa-hand-holding-heart"></i> <%= link_to "#{pub.offers.count} offer(s)",offer_path(pub.offers.last) %></p>
             <% end %>
           </div>
           <div>
-            <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
+            <%= link_to "Edit", edit_admin_publication_path(pub), class:"button edit" %>
             <div class="report-ngo-button mt-2">
               <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
                 Upload evidence
@@ -34,14 +38,17 @@
     <%= link_to "See offers", offers_path(@publication), class:"button" %>
     <%= link_to "My profile", @ngo, class:"button" %>
     <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button"%>
-    <div id="ngo-members">
+    <div class="ngo-members mt-3">
+      <p>My member(s)</p>
+      <ul>
       <% @ngo_members.each do |ngo_member| %>
       <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
+      </ul>
       <% end %>
     </div>
   <% if @ngo.user == current_user %>
-    <button type="button" class="button" data-toggle="modal" data-target="#closingModal-ngo-member">
-    Manage members
+    <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#closingModal-ngo-member">
+    Add members
     </button>
     <% end %>
   <% if @ngo.user == current_user %>
@@ -64,4 +71,5 @@
 </div>
 </div>
 </div>
+<% console %>
 

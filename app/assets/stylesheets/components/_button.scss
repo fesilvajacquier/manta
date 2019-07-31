@@ -1,5 +1,5 @@
 .button {
-  color: white;
+  color: white !important;
   margin-bottom:3px;
   max-width:150px;
   font-size: 16px;
@@ -7,12 +7,13 @@
   border-radius: 4px;
   background:#874C62;
   transition: background 0.3s ease;
+   &:hover {
+    text-decoration:none !important;
+    color:black !important;
+  }
 }
 
-.button:hover {
-  background: #874C62;
-  color: white;
-} a{
-  text-decoration: none;
-  color:black
+.button.edit:hover {
+  color:black !important;
 }
+

@@ -1,6 +1,6 @@
 <li id="ngo-member-<%= ngo_member.id %>">
   <%= ngo_member.user.first_name %>
   <% if @ngo.user == current_user %>
-     - <%= link_to "x", admin_ngo_member_path(ngo_member), method: :delete, remote: true, data: {confirm: "Are you sure?"}%>
-  <% end %> 
+  - <%= link_to "x", admin_ngo_member_path(ngo_member), method: :delete, remote: true, data: {confirm: "Are you sure?"}%>
+  <% end %>
 </li>

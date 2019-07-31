@@ -84,19 +84,39 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  border-radius: 4px;
 }
 
 .card-product a {
   font-size: 12px;
-}:hover {
-  text-decoration:none !important;
-  color:black !important;
+  color:black;
+  &:hover {
+    text-decoration:none !important;
+  }
 }
 
 .card-product .card-product-infos {
   padding: 16px;
   max-width: 650px;
   height: 120px;
+}
+
+.card-product:hover {
+  position: relative;
+  top: -2px;
+  transition: 0.5s;
+}
+
+.top-clean:hover {
+  border-top: 5px solid #55B8A9;
+}
+
+.top-butter:hover {
+  border-top: 5px solid #F2D388;
+}
+
+.top-salmon:hover {
+  border-top: 5px solid #D98D7C;
 }
 
 .box {
