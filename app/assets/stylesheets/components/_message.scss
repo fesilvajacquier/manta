@@ -16,16 +16,17 @@
 
       .chat-timestamp {
         &.me {
+          font-size: 2px !important;
         }
       }
       .chat-bubble {
-        justify-content: center;
         }
         &.him {
         }
         &.parking-share {
         }
         .chat-username {
+          margin-right: 8px;
         }
         .chat-message {
         }
