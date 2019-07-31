@@ -125,7 +125,7 @@
       <ul>
         <% @publication.category.publications.last(5).each do |pub| %>
           <li>
-            <strong><%= link_to pub.title, pub, class: 'link' %></strong> posted by <strong><%= link_to pub.ngo.name %></strong>
+            <strong><%= link_to pub.title, pub, class: 'link' %></strong> posted by <strong><%= link_to pub.ngo.name, pub.ngo %></strong>
           </li>
         <% end %>
       </ul>

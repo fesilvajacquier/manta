@@ -1,16 +1,24 @@
-<div class="container">
-    <div class="row mx-1 my-1 d-flex justify-content-center">
+<div class="container pub-style <%= %w[bt-clean bt-butter bt-salmon].sample %>">
+    <div class="row">
+      <div class="col-sm-12 col-md-4 py-4 d-flex flex-column align-items-center">
+        <div class="align-items-center justify-content-center d-flex" style="width: 300px; height: 365px;">
+          <%= cl_image_tag(Picture
+          .find_by(imageable_type: 'Ngo', imageable_id: @ngo.id, category: 'logo')
+          .picture, width: 300, height: 365, crop: 'fit') %>
+        </div>
+        <div class='text-center my-5'>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#reportModal">
+            Report this NGO
+          </button>
+          <%= render 'report_form' %>
+        </div>
+      </div>
       <div class="col-sm-12 col-md-6 my-1 p-1 new-ngo-wrapper">
         <div class="ngo-title-wrapper">
           <div class="ngo-title">
             <h1><%=@ngo.name%></h1>
             <h5><strong>Location:</strong> <%=@ngo.address%></h4>
           </div>
-          <!-- <div class="share-button">
-            <button type="button" class="button space-btw-button" name="SHARE">
-              SHARE
-            </button>
-          </div> -->
          </div>
         <div class="ngo-info">
           <h5><strong>About us</strong></h5>
@@ -24,18 +32,38 @@
         </div>
         <div
           id="map"
-          style="width: 500px; height: 300px;"
+          style="height: 200px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          class="my-5"
         ></div>
-        <!-- <div class="ngo-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<#%= cl_image_path @ngo.pictures.first.picture, crop: :fill %>');"> -->
-        </div>
-        <div class="report-ngo-button">
-          <button type="button" class="button space-btw-button" data-toggle="modal" data-target="#reportModal">
-            Report this NGO
-          </button>
-          <%= render 'report_form' %>
-        </div>
+        <% if @ngo.pictures.count > 1 %>
+          <div 
+            id="carouselExampleControls"
+            class="carousel slide mb-5"
+            data-ride="carousel"
+            style="height: 300px">
+            <div class="carousel-inner">
+              <% @ngo.pictures.reject{ |p| p.category == 'logo' }.each do |pic| %>
+                <div class="carousel-item active">
+                  <img 
+                    class="d-block w-100"
+                    src="<%= pic.picture.url %>"
+                    alt="Slide pic"
+                    style="height: 300px; object-fit: contain;">
+                </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        <% end %>
       </div>
     </div>
 </div>
