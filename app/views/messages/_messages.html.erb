@@ -1,4 +1,11 @@
 <div class="chat-wrapper">
+  <div class="messenger-name">
+    <h4><%= @offer.publication.ngo.name.upcase %></h4>
+    <div class="d-flex align-items-center">
+      <div id="status" style="<%= 'border-color: #469A1F;' if rand(1..10) > 3 %>"></div>
+      <span class="pl-2">Mobile - <%= rand(2..20) %> min ago</span>
+    </div>
+  </div>
   <div class="chat-box" data-booking_id="<%= @offer.id %>" data-current_user="<%= current_user.id %>">
     <% if @messages.empty? %>
     <div class="chat-bubble-wrapper">
@@ -28,6 +35,8 @@
   <div class="field">
     <%= form.text_field :content, id: :message, class: "form-control", required: true, placeholder: "Type a message..." %>
     <%= form.hidden_field :identifier, id: :identifier, value: current_user.identifier %>
+  </div>
+  <div>
   </div>
   <% end %>
 </div>
