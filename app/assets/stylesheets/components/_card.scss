@@ -57,7 +57,7 @@
 
 .card-product {
   overflow: hidden;
-  // width: 700px;
+  // max-width: 700px;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -84,12 +84,64 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  border-radius: 4px;
+}
+
+.card-product a {
+  font-size: 12px;
+  color:black;
+  &:hover {
+    text-decoration:none !important;
+  }
 }
 
 .card-product .card-product-infos {
   padding: 16px;
-  // width: 500px;
+  max-width: 650px;
   height: 120px;
+}
+
+.card-product:hover {
+  position: relative;
+  // top: -2px;
+  // transition: 0.5s;
+}
+
+.top-clean:hover {
+  border-top: 8px solid #55B8A9;
+  button {
+  background-color: #55B8A9;
+  color: black !important;
+  }
+  div > a {
+    background-color: #55B8A9;
+    color: black !important;
+  }
+}
+
+.top-butter:hover {
+  border-top: 8px solid #F2D388;
+
+  button {
+    background-color: #F2D388;
+    color: black !important;
+  }
+  div > a {
+    background-color: #F2D388;
+    color: black !important;
+  }
+}
+
+.top-salmon:hover {
+  border-top: 8px solid #D98D7C;
+  button {
+  background-color: #D98D7C;
+  color: black !important;
+  }
+  div > a {
+    background-color: #D98D7C;
+    color: black !important;
+  }
 }
 
 .box {

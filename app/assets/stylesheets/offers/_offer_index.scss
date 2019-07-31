@@ -1,6 +1,13 @@
 .offer-show {
   height: 60vh;
   margin-top: 80px;
+  a {
+  text-decoration: none;
+  color: black;
+  :hover {
+    color: #a7d2cb;
+  }
+ }
 }
 .offer_index {
     width: 300px !important;

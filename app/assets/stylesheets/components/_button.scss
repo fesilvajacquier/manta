@@ -1,22 +1,22 @@
-.button{
-  color: red;
-  font-size: 13px;
-  border: 4px solid red;
-  padding: 5px 17px;
-  border-radius: 51px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-} :hover {
-  opacity: 2;
-   // font-weight: bold;
- }
-
- a:hover {
-  text-decoration: none;
-  color: black;
+.button {
+  color: white !important;
+  margin-bottom:3px;
+  max-width:150px;
+  font-size: 16px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background:#874C62;
+  transition: background 0.3s ease;
+   &:hover {
+    text-decoration:none !important;
+    color: black !important;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
 }
 
-.space-btw-button {
-    margin: 33px;
+.button.edit:hover {
+  border: 1px solid rgba(0,0,0,0.1);
+  color: black !important;
 }
+
+

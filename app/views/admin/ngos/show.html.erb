@@ -1,22 +1,29 @@
 <div class="container">
+  <h1 style="font-size:30px">Manage my publication</h1>
+
 <div class="d-flex align-items-top offers-display">
   <div class="offers-wrapper">
     <% @ngo.publications.each do |pub| %>
-      <%= link_to publication_path(pub) do  %>
-        <div class="card-product mt-3 ">
+        <div class="card-product mt-3 <%= case pub.category.parent.name
+                                          when 'Donate' then 'top-clean'
+                                          when 'Goods' then 'top-butter'
+                                          when 'Services' then 'top-salmon'
+                                          end
+                                           %>">
+       <%= link_to publication_path(pub) do  %>
           <div class="card-product-infos">
             <h2><%= pub.title %></h2>
             <p><%= pub.description%></p>
             <% if pub.offers.empty? %>
-              <%= link_to "No offers" %>
+              <p><i class="fas fa-hand-holding-heart"></i> No offer</p>
             <% else %>
-              <%= link_to "#{pub.offers.count} offer(s)", offer_path(pub.offers.last) %>
+              <p> <i class="fas fa-hand-holding-heart"></i> <%= link_to "#{pub.offers.count} offer(s)",offer_path(pub.offers.last) %></p>
             <% end %>
           </div>
           <div>
-            <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
+           <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
             <div class="report-ngo-button mt-2">
-              <button type="button" class="button" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
+              <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
                 Upload evidence
               </button>
             </div>
@@ -26,23 +33,30 @@
       <% end %>
     <% end %>
   </div>
-  <div class="user-options text-center">
+  <div class="user-options aling-items-center text-center mt-3">
 
-    <%= link_to "See offers", offers_path(@publication), class:"button " %>
+    <%= link_to "See offers", offers_path(@publication), class:"button" %>
     <%= link_to "My profile", @ngo, class:"button" %>
     <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button"%>
-    <ul id="ngo-members">
-      <% @ngo_members.each do |ngo_member| %>
-      <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
+      <% unless @ngo.ngo_members.empty? %>
+        <div class="ngo-members mt-3">
+          <% if @ngo.user == current_user %>
+            <p>My member(s)</p>
+            <div id="ngo-members">
+              <% @ngo_members.each do |ngo_member| %>
+              <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
   <% if @ngo.user == current_user %>
-    <button type="button" class="btn-danger" data-toggle="modal" data-target="#closingModal-ngo-member">
-    Manage members
+    <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#ngo-member-modal">
+    Add members
     </button>
     <% end %>
   <% if @ngo.user == current_user %>
-  <div class="modal fade" id="closingModal-ngo-member" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
+<div class="modal fade" id="ngo-member-modal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -56,6 +70,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
 </div>
