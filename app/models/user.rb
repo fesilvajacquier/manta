@@ -40,7 +40,7 @@ class User < ApplicationRecord
       user.token = auth.credentials.token
       user.email = auth.info.email
       user.expires = auth.credentials.expires
-      user.expires_at = auth.credentials.expires_at
+      user.expires_at = Time.now + 30.days
       user.refresh_token = auth.credentials.refresh_token
       user.password = SecureRandom.urlsafe_base64
     end

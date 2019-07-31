@@ -300,6 +300,6 @@ Devise.setup do |config|
   client_secret = ENV['CLIENT_SECRET']
  # Configure Google omniauth with proper scope
   config.omniauth :google_oauth2, client_id, client_secret, {
-    scope: "contacts.readonly, userinfo.email, userinfo.profile"
+    scope: "userinfo.email, userinfo.profile"
  }
 end
