@@ -18,22 +18,22 @@
 }
 
 .ngo-members {
+  display:flex;
+  flex-direction: column;
   max-width:150px;
   border: 1px solid #874C62;
   background-color: white;
+  padding: 0 10px;
   a:hover{
    color : #874C62;
    text-decoration: none;
  }
-  li {
-
-   list-style:none;
-  }
-  ul {
-   padding: 0;
-  }
   p {
    margin-top: 5px;
+  }
+  .ngo-member {
+    display:flex;
+    justify-content:space-between;
   }
 }
 // Small devices (landscape phones, 576px and up)

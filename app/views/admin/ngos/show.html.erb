@@ -21,7 +21,7 @@
             <% end %>
           </div>
           <div>
-            <%= link_to "Edit", edit_admin_publication_path(pub), class:"button edit" %>
+           <%= link_to "Edit", edit_admin_publication_path(pub), class:"button" %>
             <div class="report-ngo-button mt-2">
               <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#closingModal-<%= pub.id %>">
                 Upload evidence
@@ -38,21 +38,25 @@
     <%= link_to "See offers", offers_path(@publication), class:"button" %>
     <%= link_to "My profile", @ngo, class:"button" %>
     <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button"%>
-    <div class="ngo-members mt-3">
-      <p>My member(s)</p>
-      <ul>
-      <% @ngo_members.each do |ngo_member| %>
-      <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
-      </ul>
+      <% unless @ngo.ngo_members.empty? %>
+        <div class="ngo-members mt-3">
+          <% if @ngo.user == current_user %>
+            <p>My member(s)</p>
+            <div id="ngo-members">
+              <% @ngo_members.each do |ngo_member| %>
+              <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </div>
   <% if @ngo.user == current_user %>
-    <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#closingModal-ngo-member">
+    <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#ngo-member-modal">
     Add members
     </button>
     <% end %>
   <% if @ngo.user == current_user %>
-  <div class="modal fade" id="closingModal-ngo-member" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
+<div class="modal fade" id="ngo-member-modal" tabindex="-1" role="dialog" aria-labelledby="reportModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -66,6 +70,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
 </div>
