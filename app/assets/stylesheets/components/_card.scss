@@ -57,7 +57,7 @@
 
 .card-product {
   overflow: hidden;
-  // width: 700px;
+  // max-width: 700px;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -95,7 +95,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
-  // width: 500px;
+  max-width: 650px;
   height: 120px;
 }
 
