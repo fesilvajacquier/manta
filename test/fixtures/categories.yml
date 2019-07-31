@@ -1,0 +1,6 @@
+donate_parent:
+  name: 'Donate'
+
+donate:
+  name: 'donate'
+  ancestry: donate_parent

@@ -1,7 +1,30 @@
 .pub-style{
-  background-color: rgba(255, 255, 255, 0.342);
-  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 0 0 50px 50px;
   padding: 36px 36px;
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0px 0px 60px rgba(150, 150, 150, 0.4);
+}
+.bt-clean {
+  border-top: 15px solid $clean;
+}
+.bt-butter {
+  border-top: 15px solid $butter;
+}
+.bt-salmon {
+  border-top: 15px solid $salmon;
+}
+
+ul {
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+
+.link {
+  color: $eggplant;
+  &:hover {
+    color: black;
+  }
 }
