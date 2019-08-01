@@ -13,7 +13,7 @@
           <%= f.input :category, collection: (Report::REP_CAT) %>
           <%= f.input :content, input_html: { minlength: 140 } %>
           <%= f.input :phone_number %>
-          <%= f.submit 'Create report', id: 'reportSubmit', disabled: true %>
+          <%= f.submit 'Create report',class:'button', id: 'reportSubmit', disabled: true %>
         <% end %>
       </div>
     </div>
