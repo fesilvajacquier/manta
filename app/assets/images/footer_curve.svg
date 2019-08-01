@@ -1,0 +1,8 @@
+ <svg id="curve" width="1440" height="601" viewBox="0 0 1440 601" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="601">
+  <rect width="1440" height="601" fill="#D98D7C"/>
+  </mask>
+  <g mask="url(#mask0)">
+  <path d="M-14.9999 257C899 317.5 1041.5 135 1455 257C1868.5 379 1455 601 1455 601H-14.9999C-14.9999 601 -929 196.5 -14.9999 257Z" fill="#D98D7C"/>
+  </g>
+  </svg>
