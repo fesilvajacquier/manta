@@ -10,7 +10,7 @@
   <div class="offer-search">
     <i class="fas fa-search"></i>
     <input type="text" class="offer-search-input" placeholder="Search for">
-    <i class="fas fa-book-open"></i>
+    <i class="fab fa-elementor"></i>
   </div>
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-as-donor" role="tabpanel" aria-labelledby="pills-as-donor-tab">
@@ -20,8 +20,8 @@
             <div class="offer_img" style="background-image:url('https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2');">
             </div>
             <div class="">
-              <div class="offer_detail">
-                <h4><%= offer.publication.ngo.name.upcase %></h4>
+              <div class="offer_detail pl-3">
+                <h4><%= offer.publication.ngo.name.upcase.truncate(20, separator: " ") %></h4>
                 <p><%= offer.publication.title %></p>
               </div>
               <div class="offer_date">

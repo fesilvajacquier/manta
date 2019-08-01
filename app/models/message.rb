@@ -5,6 +5,9 @@ class Message < ApplicationRecord
   after_create :notified_pusher, on: :create
 
   def notified_pusher
-    Pusher.trigger('message', 'new', self.as_json)
+    json = as_json
+    json["avatar"] = user.avatar
+    json["fullName"] = user.full_name
+    Pusher.trigger('message', 'new', json)
   end
 end
