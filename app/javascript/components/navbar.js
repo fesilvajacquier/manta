@@ -3,7 +3,7 @@ const initUpdateNavbarOnScroll = () => {
   const navbarSearch = document.querySelector('.search-navbar')
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= window.innerHeight) {
+      if (window.scrollY >= 10) {
         navbarSearch.classList.add('navbar-scrolled');
         navbar.classList.add('navbar-lewagon-white');
       } else {
