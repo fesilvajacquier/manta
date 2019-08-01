@@ -86,6 +86,10 @@
   border-radius: 4px;
 }
 
+// .card-product > div > p {
+//   background-color: gray;
+// }
+
 .card-product a {
   font-size: 12px;
   color:black;
@@ -116,6 +120,9 @@
     background-color: #55B8A9;
     color: black !important;
   }
+  .tag-category {
+    background-color: #55B8A9;
+  }
 }
 
 .top-butter:hover {
@@ -129,6 +136,9 @@
     background-color: #F2D388;
     color: black !important;
   }
+  .tag-category {
+    background-color: #F2D388;
+  }
 }
 
 .top-salmon:hover {
@@ -140,6 +150,9 @@
   div > a {
     background-color: #D98D7C;
     color: black !important;
+  }
+  .tag-category {
+    background-color: #D98D7C;
   }
 }
 
@@ -188,4 +201,17 @@
   border-radius: 50%;
   flex-direction: column-reverse;
   transition-duration: .5s;
+}
+
+.tag-category{
+  background-color: #E5E5DD;
+  max-width: 94px;
+  text-align: left;
+  border-radius: 3px;
+  height: 22px;
+  font-weight:bold;
+  color: rgba(0,0,0,0.8);
+} p {
+  margin: 0;
+  padding: 2px 0;
 }
