@@ -1,8 +1,8 @@
 const closingSubmit = () => {
   const closingPubForm = document.querySelector('[id^="edit_publication"]');
   const closingSubmit = document.getElementById('closingSubmit');
-  const fileUploader = closingPubForm[4]
   if (closingSubmit) {
+    const fileUploader = closingPubForm[4]
     
     closingPubForm.addEventListener('keyup', () => {
       if (validate(closingPubForm)) {
