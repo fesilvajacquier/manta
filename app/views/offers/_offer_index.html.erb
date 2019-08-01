@@ -1,10 +1,10 @@
 <div class="offer_index">
-  <ul class="nav nav-pills mb-3 list-inline" id="pills-tab" role="tablist">
-    <li class="nav-item list-inline-item">
+  <ul class="nav nav-pills d-flex list-inline" id="pills-tab" role="tablist">
+    <li class="nav-item flex-grow-1 h-100 list-inline-item m-0 messages-tabs">
       <a class="active" id="pills-as-donor-tab" data-toggle="pill" href="#pills-as-donor" role="tab" aria-controls="pills-as-donor" aria-selected="true">Offers as a donor</a>
     </li>
-    <li class="nav-item list-inline-item">
-      <a class="" id="pills-as-ngo-tab" data-toggle="pill" href="#pills-as-ngo" role="tab" aria-controls="pills-as-ngo" aria-selected="false">Offers as NGO</a>
+    <li class="nav-item list-inline-item flex-grow-1 h-100 m-0 messages-tabs">
+      <a class="h-100 w-100 d-flex justify-content-center align-items-center" id="pills-as-ngo-tab" data-toggle="pill" href="#pills-as-ngo" role="tab" aria-controls="pills-as-ngo" aria-selected="false">Offers as NGO</a>
     </li>
   </ul>
   <div class="offer-search">
@@ -35,7 +35,7 @@
     <div class="tab-pane fade" id="pills-as-ngo" role="tabpanel" aria-labelledby="pills-as-ngo-tab">
       <% offers_as_ngo = current_user.offers_as_owner + current_user.offers_as_collaborator %>
       <% if offers_as_ngo.empty? %>
-        <div class="text-center">
+        <div class="text-center mt-5 help-text">
           <p>It is time to help!</p>
           <p>Have a look to all the NGOs that are looking for collaborators</p>
           <p>Placeholder for link to search</p>
