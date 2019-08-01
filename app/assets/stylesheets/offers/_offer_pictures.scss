@@ -4,3 +4,77 @@
   border-bottom: 1px solid rgba(0,0,0,0.1);
   border-left:1px solid rgba(0,0,0,0.1);
 }
+
+.ngo-name{
+  color: rgba(0,0,0,0.6);
+  font-size: 11px;
+}
+
+.ngo-publication-description{
+  color: rgba(0,0,0,0.6);
+}
+
+.chat-publication-link {
+  font-size: 15px;
+  background-color: $salmon;
+  padding: 6px 10px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 4px;
+  a {
+    color: white;
+  }
+}
+
+.publication-title {
+  a {
+    color: $salmon;
+  }
+}
+
+#pills-tab {
+  padding: 0;
+  background-color: white;
+  height: 49px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+#pills-pub-details-tab {
+  height: 100%;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.pills-pub-details-tab-2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer-pub-tabbe {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.messages-tabs-color a {
+  color: $salmon;
+}
+
+.nav-pills .nav-link.active {
+    background-color: $salmon;
+}
+
+.messages-tabs a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  color: $salmon;
+}
+
+.messages-tabs a.active {
+  background-color: $salmon;
+  color: white;
+}
