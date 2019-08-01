@@ -63,6 +63,14 @@ class User < ApplicationRecord
     # end
   end
 
+  def full_name
+    if first_name.nil?
+      identifier
+    else
+      return "#{first_name.capitalize} #{first_name.capitalize}"
+    end
+  end
+
   # def last_offer
   #   last_offers = []
   #   last_offers += offers_as_donor.last

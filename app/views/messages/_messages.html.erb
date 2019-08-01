@@ -1,18 +1,30 @@
 <div class="chat-wrapper">
+  <div class="messenger-name">
+    <h4><%= @offer.publication.ngo.name.upcase.truncate(40, separator: " ") %></h4>
+    <div class="d-flex align-items-center chat-status">
+      <div id="status" style="<%= 'border-color: #469A1F;' if rand(1..10) > 3 %>"></div>
+      <span class="pl-2">Mobile - <%= rand(2..20) %> min ago</span>
+    </div>
+  </div>
   <div class="chat-box" data-booking_id="<%= @offer.id %>" data-current_user="<%= current_user.id %>">
     <% if @messages.empty? %>
-    <div class="chat-bubble-wrapper">
-      <div class="chat-bubble parking-share">
-        <div class="chat-username">Parking Share</div>
-        <div class="chat-message">Your chat is here!</div>
-      </div>
-      <div class="chat-timestamp him">
-        <%= Time.now.strftime("%m-%e-%Y %H:%M") %>
+    <div class="chat-bubble-wrapper d-flex">
+      <div class="chat-bubble parking-share d-flex">
+        <div class="chat-username">Manta Platform .</div>
+        <div class="chat-timestamp him">
+            <%= Time.now.strftime("%I:%M %p") %>
+        </div>
       </div>
     </div>
+  <div class="chat-message">Your chat is here!</div>
     <% end %>
-    <% @messages.each do |message| %>
-    <%= render 'messages/message_content', message: message %>
+    <% @messages.each_with_index do |message, index| %>
+    <% same_user = @messages.count > 1 && @messages[index - 1].user == message.user %>
+    <% if !same_user || index == 0%>
+    <%= render 'messages/message_content', message: message, index: index %>
+    <% else %>
+    <%= render 'messages/message_content_same_user', message: message %>
+    <% end %>
     <% end %>
   </div> <%= form_with(model: [@offer, @message], remote: true, format: :json, id: 'chat-form') do |form| %>
   <% if @message.errors.any? %>
@@ -28,6 +40,8 @@
   <div class="field">
     <%= form.text_field :content, id: :message, class: "form-control", required: true, placeholder: "Type a message..." %>
     <%= form.hidden_field :identifier, id: :identifier, value: current_user.identifier %>
+  </div>
+  <div>
   </div>
   <% end %>
 </div>

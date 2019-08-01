@@ -10,16 +10,16 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-pub-details" role="tabpanel" aria-labelledby="pills-pub-details-tab">
       <div class="text-center px-3">
-        <h4><%= @offer.publication.title %></h4>
+        <h4><%= link_to @offer.publication.title, publication_path(@offer.publication) %></h4>
         <span>posted by <%= @offer.publication.ngo.name %></span>
         <p><%= @offer.publication.description %></p>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-offer-pictures" role="tabpanel" aria-labelledby="pills-offer-pictures-tab">
       <div class="text-center">
-        <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
+        <div class="mb-3">
           <% unless @offer.pictures.empty? %>
-            <%= cl_image_tag @offer.pictures.first.picture, crop: :fill %>
+            <%= cl_image_tag @offer.pictures.first.picture, width: 250, crop: :fill %>
           <% end %>
         </div>
         <%= simple_form_for @picture do |pf| %>

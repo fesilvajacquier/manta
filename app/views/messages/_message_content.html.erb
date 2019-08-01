@@ -1,8 +1,13 @@
-<div class="chat-bubble-wrapper">
-  <% sender = message.user == current_user ? "me" : "him" %>
-  <div class="chat-bubble <%= sender %>">
-    <div class="chat-username"><%= message.user.identifier %></div>
-    <div class="chat-message"><%= message.content %></div>
+<% sender = message.user == current_user ? "me" : "him" %>
+<div class="chat-bubble-wrapper <%= sender %>" style="<%= index == 0 ? 'margin-top: 0px; border: none;' : 'margin-top: 20px;' %>">
+  <div class="chat-bubble d-flex">
+    <div><img src="<%= asset_path(current_user.avatar) %>" alt="" class="avatar"></div>
+    <div class="pl-2">
+      <div class="d-flex align-items-center">
+        <div class="chat-username m-0"><%= message.user.full_name %>  ·  </div>
+        <div class="chat-timestamp m-0 <%= sender %>"><%= message.created_at.strftime("%I:%M %p") %></div>
+      </div>
+      <div class="chat-message"><%= message.content %></div>
+    </div>
   </div>
-  <div class="chat-timestamp <%= sender %>"><%= message.created_at.strftime("%m-%e-%Y %H:%M") %></div>
 </div>
