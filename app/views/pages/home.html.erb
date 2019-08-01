@@ -4,7 +4,7 @@
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
       <%= link_to publications_path(publication: { parent_category: Category
-        .find_by(name: 'Donate').children.ids.join("-") } ), class:"box card-green" do %>
+        .find_by(name: 'DONATE').children.ids.join("-") } ), class:"box card-green" do %>
         <%= image_tag asset_path("logo_donate.png"), alt: "donate" %>
         <h2> Donate</h2>
       <% end %>
@@ -13,7 +13,7 @@
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
       <%= link_to publications_path(publication: { parent_category: Category
-        .find_by(name: 'Goods').children.ids.join("-") } ), class:"box card-yellow" do %>
+        .find_by(name: 'GOODS').children.ids.join("-") } ), class:"box card-yellow" do %>
       <%= image_tag asset_path("logo_goods1.png"), alt: "services" %>
       <h2> Goods</h2>
       <% end %>
@@ -23,7 +23,7 @@
 
     <div class="col-12 col-sm-6 col-md-6 col-lg-4">
       <%= link_to publications_path(publication: { parent_category: Category
-        .find_by(name: 'Services').children.ids.join("-") } ), class:"box card-salmon" do %>
+        .find_by(name: 'SERVICES').children.ids.join("-") } ), class:"box card-salmon" do %>
           <%= image_tag asset_path("logo_services.png"), alt: "services" %>
           <h2> Services</h2>
       <% end %>
@@ -34,7 +34,7 @@
   <div class="row mt-3">
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'books').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'BOOKS').id } ), class:"card-category" do %>
       <div class="card-small hover-yellow">
         <i class="fas fa-book-open"></i>
         <h2> books</h2>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'teaching').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'TEACHING').id } ), class:"card-category" do %>
       <div class="card-small">
         <i class="fas fa-chalkboard-teacher"></i>
         <h2> teaching</h2>
@@ -53,7 +53,7 @@
 
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'furniture').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'FURNITURE').id } ), class:"card-category" do %>
       <div class="card-small hover-yellow">
         <i class="fas fa-couch"></i>
         <h2> furniture</h2>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'technical support').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'TECHNICAL SUPPORT').id } ), class:"card-category" do %>
       <div class="card-small">
         <i class="fas fa-headset"></i>
         <h2> tech support</h2>
@@ -72,7 +72,7 @@
 
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'sporting goods').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'SPORTING GOODS').id } ), class:"card-category" do %>
       <div class="card-small hover-yellow">
         <i class="fas fa-volleyball-ball"></i>
         <h2> sporting goods</h2>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'general volunteer').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'GENERAL VOLUNTEER').id } ), class:"card-category" do %>
       <div class="card-small">
         <i class="fas fa-hands-helping"></i>
         <h2> general volunteer</h2>
@@ -90,7 +90,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'electronics').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'ELECTRONICS').id } ), class:"card-category" do %>
       <div class="card-small hover-yellow">
         <i class="fas fa-laptop"></i>
         <h2> electronics</h2>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'clothing').id } ), class:"card-category" do %>
+      <%= link_to publications_path(publication: { category_id: Category.find_by(name: 'CLOTHING').id } ), class:"card-category" do %>
       <div class="card-small hover-yellow">
         <i class="fas fa-tshirt"></i>
         <h2> clothing</h2>
