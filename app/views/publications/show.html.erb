@@ -35,11 +35,14 @@
       <% else %>
         <div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
           <div class="carousel-inner">
-            <% @publication.pictures.reject { |p| p.category == 'closing' }.each do |pic| %>
-              <div class="carousel-item active">
-                <%# cl_image_tag pic.picture, class: 'd-block w-100' %>
-                <img class="d-block w-100" src="<%= pic.picture.url %>" alt="Slide pic"> 
-              </div>
+            <% @publication.pictures.reject { |p| p.category == 'closing' }.each_with_index do |pic, i| %>
+                <% if i == 0 %>
+                  <div class="carousel-item active">
+                <% else %>
+                  <div class="carousel-item">
+                <% end %>
+                    <%= cl_image_tag pic.picture, width: 300, height: 365, crop: 'fit', class: "d-block" %>
+                  </div>
             <% end %>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -60,7 +63,7 @@
         class="my-5"
       ></div>
       <div>
-        <p class="sub-header">Share this pub on social media</p>
+        <p class="sub-header mb-3">Share this pub on social media</p>
         <div class="text-center mb-3">
           <%= social_share_button_tag("#{@publication.ngo.name.capitalize} needs help with: #{@publication.title}") %>
         </div>

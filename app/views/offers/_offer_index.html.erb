@@ -17,7 +17,10 @@
       <% current_user.offers_as_donor.each do |offer| %>
         <%= link_to offer_path(offer), class:"offer-link" do %>
           <div class="offer_tab p-3 d-flex justify-content-between align-items-center offer_information <%= offer.id.to_s == params[:id] ? 'offer_information-selected' : '' %>">
-            <div class="offer_img" style="background-image:url('https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2');">
+            <div class="align-items-center justify-content-center d-flex" style="width: 60px; height: 100%;">
+              <%= cl_image_tag(Picture
+              .find_by(imageable_type: 'Ngo', imageable_id: offer.publication.ngo.id, category: 'logo')
+              .picture,width: 60, height: 60, crop: 'fit') %>
             </div>
             <div class="">
               <div class="offer_detail pl-3">
