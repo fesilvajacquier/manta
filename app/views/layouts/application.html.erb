@@ -9,6 +9,7 @@
     <meta property="og:image" content="manta.png">
     <meta property="og:description" content="Manta is a place where NGOs can publish their needs to reach more potential donors. We are focused on connecting people and NGOs in a transparent way.">
     <meta property="og:site_name" content="Manta"/>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
     <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -21,7 +22,6 @@
     <% end %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
-    <link href=’https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel=‘stylesheet’ />
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
   </head>

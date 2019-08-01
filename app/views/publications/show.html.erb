@@ -1,19 +1,19 @@
 <%= content_for(:meta_og) do %>
-  <meta property="og:title" content="<%= "#{@publication.ngo.name.capitalize} needs #{@publication.title}" %>" />
+  <meta property="og:title" content="<%= "#{@publication.ngo.name.capitalize} needs help with: #{@publication.title}" %> />
   <meta property="og:type" content="article" />
   <%# <meta property="og:published_time" content="<%= @publication.publication_date.strftime('%Y-%m-%d %H:%M') %>
   <meta property="og:author" content="mantaplatform.com" />
   <meta property="og:description" content="<%= truncate(@publication.description, length: 50) %>" />
   <meta property="og:url" content="<%= request.original_url %>" />
   <% if @publication.ngo.pictures.first.present? %>
-      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture)}" %>
-      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture)}" %>
+      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture, width: 1200, height: 630, crop: :fill)}" %>
+      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture, width: 440, height: 220, crop: :fill)}" %>
   <% end %>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="mantaplatform.com">
   <%# TODO add twitter account %>
   <%# <meta name="twitter:creator" content="@iedamarcondes"> %>
-  <meta name="twitter:title" content="<%= "#{@publication.ngo.name.capitalize} needs #{@publication.title}" %>" />
+  <meta name="twitter:title" content="<%= "#{@publication.ngo.name.capitalize} needs help with: #{@publication.title}" %>" />
   <%# <meta name="twitter:site" content="<%= @publication.ngo.name %>
   <meta name="twitter:description" content="<%= truncate(@publication.description, length: 100) %>" />
 <% end %>
@@ -60,19 +60,16 @@
         class="my-5"
       ></div>
       <div>
-        <h3 class="sub-header">Be a pal ...</h3>
-        <p>... share this pub on social media</p>
+        <p class="sub-header">Share this pub on social media</p>
         <div class="text-center mb-3">
-          <%= social_share_button_tag("#{@publication.ngo.name.capitalize} needs: #{@publication.title}",
-                                      image: cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture),
-                                      description: "#{@publication.description[0..100]}...") %>
+          <%= social_share_button_tag("#{@publication.ngo.name.capitalize} needs help with: #{@publication.title}") %>
         </div>
       </div>
     </div>
     <div class="col-sm-12 col-md-8">
       <div class="d-flex justify-content-between align-items-center pb-3">
         <h2> <%= @publication.title %> </h2>
-        <%= social_share_button_tag(@publication.title, desc: @publication.description) %>
+        <%= social_share_button_tag("#{@publication.ngo.name.capitalize} needs help with: #{@publication.title}") %>
         <%# <a href="#" class="btn btn-success">Share on SM</a> %>
       </div>
       <p>posted by <strong><%= link_to @publication.ngo.name, ngo_path(@publication.ngo)  %></strong></p>
