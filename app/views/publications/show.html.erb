@@ -1,22 +1,20 @@
 <%= content_for(:meta_og) do %>
-  <meta property="og:title" content="<%= @publication.title %>" />
+  <meta property="og:title" content="<%= "#{@publication.ngo.name.capitalize} needs #{@publication.title}" %>" />
   <meta property="og:type" content="article" />
   <%# <meta property="og:published_time" content="<%= @publication.publication_date.strftime('%Y-%m-%d %H:%M') %>
-  <%# TODO add manta web as author %>
-  <%# <meta property="og:author" content="https://www.facebook.com/iedamarcondes" /> %>
+  <meta property="og:author" content="mantaplatform.com" />
   <meta property="og:description" content="<%= truncate(@publication.description, length: 50) %>" />
   <meta property="og:url" content="<%= request.original_url %>" />
   <% if @publication.ngo.pictures.first.present? %>
-      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(@publication.ngo.pictures.first.picture)}" %>
-      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(@publication.ngo.pictures.first.picture)}" %>
+      <%= tag :meta, property: 'og:image', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture)}" %>
+      <%= tag :meta, name: 'twitter:image:src', content: "#{cl_image_path(Picture.find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo').picture)}" %>
   <% end %>
   <meta name="twitter:card" content="summary_large_image">
-  <%# TODO add manta web %>
-  <%# <meta name="twitter:site" content="iedamarcondes.com"> %>
+  <meta name="twitter:site" content="mantaplatform.com">
   <%# TODO add twitter account %>
   <%# <meta name="twitter:creator" content="@iedamarcondes"> %>
-  <meta name="twitter:title" content="<%= @publication.title %>" />
-  <meta name="twitter:site" content="<%= @publication.ngo.name %>" />
+  <meta name="twitter:title" content="<%= "#{@publication.ngo.name.capitalize} needs #{@publication.title}" %>" />
+  <%# <meta name="twitter:site" content="<%= @publication.ngo.name %>
   <meta name="twitter:description" content="<%= truncate(@publication.description, length: 100) %>" />
 <% end %>
 

@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Manta">
-    <meta property="og:image" content="og.png">
-    <meta property="og:description" content="Manta plataform help on a trusty way">
+    <title>Manta | A platform to channel goodwill</title>
+    <meta name="description" content="Manta is a place where NGOs can publish their needs to reach more potential donors. We are focused on connecting people and NGOs in a transparent way.">
+    <meta property="og:title" content="Manta | A platform to channel goodwill">
+    <meta property="og:image" content="manta.png">
+    <meta property="og:description" content="Manta is a place where NGOs can publish their needs to reach more potential donors. We are focused on connecting people and NGOs in a transparent way.">
     <meta property="og:site_name" content="Manta"/>
-    <title>Manta</title>
     <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <% if content_for?(:meta_og) %>
       <%= yield :meta_og %>
     <% else %>
-      <meta property="og:title" content="Manta" />
+      <meta property="og:title" content="Manta | A platform to channel goodwill" />
       <meta property="og:type" content="website" />
-      <%# TODO add manta url %>
-      <%# <meta property="og:url" content="https://www.iedamarcondes.com" /> %>
+      <meta property="og:url" content="mantaplatform.com" />
     <% end %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
