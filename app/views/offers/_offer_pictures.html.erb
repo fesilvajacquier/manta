@@ -45,12 +45,14 @@
             </div>
           <% end %>
         </div>
-        <%= simple_form_for @picture do |pf| %>
-          <%= pf.input :picture,label: 'Pick a pic!', as: :file %>
-          <%= pf.input :imageable_id, as: :hidden, input_html: { value: @offer.id } %>
-          <%= pf.input :imageable_type, as: :hidden, input_html: { value: @offer.class } %>
-          <%= pf.submit 'Upload the pic', class: "chat-publication-link"%>
-        <% end %>
+        <div class='text-left'>
+          <%= simple_form_for @picture do |pf| %>
+            <%= pf.input :picture,label: 'Pick a pic!', as: :file %>
+            <%= pf.input :imageable_id, as: :hidden, input_html: { value: @offer.id } %>
+            <%= pf.input :imageable_type, as: :hidden, input_html: { value: @offer.class } %>
+            <%= pf.submit 'Upload the pic', class: "chat-publication-link"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
