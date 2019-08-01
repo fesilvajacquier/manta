@@ -1,66 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+<style>
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+body {
+  padding: 0;
+  margin: 0;
+}
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+#searching:focus {
+  outline: none;
+}
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+#notfound {
+  position: relative;
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 767px;
+  width: 100%;
+  line-height: 1.4;
+  padding: 110px 40px;
+  text-align: center;
+  background: #fff;
+  -webkit-box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.1);
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 180px;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 165px;
+  font-weight: 700;
+  margin: 0px;
+  color: #262626;
+  text-transform: uppercase;
+}
+
+.notfound .notfound-404 h1>span {
+  color: #55B8A9;
+}
+
+.notfound h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #151515;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+.notfound .notfound-search {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+  margin: auto;
+}
+
+.notfound .notfound-search>input {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 50px;
+  padding: 3px 65px 3px 30px;
+  color: #151515;
+  font-size: 16px;
+  background: transparent;
+  border: 2px solid #c5c5c5;
+  border-radius: 40px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound .notfound-search>input:focus {
+  border-color: #55B8A9;
+}
+
+.notfound .notfound-search>button {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.notfound .notfound-search>button>span {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+  margin-left: -3px;
+}
+
+.notfound .notfound-search>button>span:after {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+  border: 4px solid #c5c5c5;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound-search>button>span:before {
+  position: absolute;
+  content: '';
+  width: 4px;
+  height: 10px;
+  left: 7px;
+  top: 17px;
+  border-radius: 2px;
+  background: #c5c5c5;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound .notfound-search>button:hover>span:after {
+  border-color: #55B8A9;
+}
+
+.notfound .notfound-search>button:hover>span:before {
+  background-color: #55B8A9;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound h2 {
+    font-size: 18px;
   }
-  </style>
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 h1 {
+    font-size: 141px;
+  }
+}
+</style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>500 HTML Template by Manta team (@Manta)</title>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
-
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
-</body>
+<body>
+<div id="notfound">
+<div class="notfound">
+<div class="notfound-404">
+<h1>5<span>0</span>0</h1>
+</div>
+<h2>We're sorry, but something went wrong.</h2>
+<p>If you are the application owner check the logs for more information.</p>
+<button type="button"  onclick="window.location.href = 'http://mantaplatform.com';">try reload</button>
+</form>
+</div>
+</div>
 </html>
