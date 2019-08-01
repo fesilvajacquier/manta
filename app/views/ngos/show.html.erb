@@ -12,17 +12,19 @@
           </button>
           <%= render 'report_form' %>
         </div>
-        <div>
-          <hr>
-          <h5 class="sub-header">Latest publications by <%= @ngo.name.capitalize %></h3>
-          <ul class='mb-3 pl-5 pt-3'>
-            <% @ngo.publications.last(5).each do |pub| %>
-              <li>
-                <strong><%= link_to pub.title, pub, class: 'link' %></strong>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <% unless @ngo.publications.empty? %>
+          <div>
+            <hr>
+            <h5 class="sub-header">Latest publications by <%= @ngo.name.capitalize %></h3>
+            <ul class='mb-3 pl-5 pt-3'>
+              <% @ngo.publications.last(5).each do |pub| %>
+                <li>
+                  <strong><%= link_to pub.title, pub, class: 'link' %></strong>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
       </div>
       <div class="col-sm-12 col-md-6 my-1 p-1 new-ngo-wrapper">
         <div class="ngo-title-wrapper">
