@@ -1,12 +1,13 @@
 .offers-wrapper {
   flex: 3;
+  min-height: 700px;
 }
 
 .user-options {
   flex: 1;
   display:flex;
   flex-direction: column;
-  margin-left:10px;
+  margin-left:25px;
   a {
     display:inline-block;
     color:black;
@@ -35,6 +36,7 @@
     justify-content:space-between;
   }
 }
+
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 576px) {
   .offers-display {

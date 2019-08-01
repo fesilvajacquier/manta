@@ -13,7 +13,7 @@
        <%= link_to publication_path(pub) do  %>
           <div class="card-product-infos">
             <h2><%= pub.title %></h2>
-            <p><%= pub.description%></p>
+            <p><%= pub.description[0..150] %> ...</p>
             <% if pub.offers.empty? %>
               <p><i class="fas fa-hand-holding-heart"></i> No offer</p>
             <% else %>
@@ -38,18 +38,18 @@
     <%= link_to "See offers", offers_path(@publication), class:"button" %>
     <%= link_to "My profile", @ngo, class:"button" %>
     <%= link_to "Create publication", new_admin_ngo_publication_path(@ngo), class:"button"%>
-      <% unless @ngo.ngo_members.empty? %>
+      <%# unless @ngo.ngo_members.empty? %>
         <div class="ngo-members mt-3">
           <% if @ngo.user == current_user %>
-            <p>My member(s)</p>
-            <div id="ngo-members">
+            <p><%= @ngo.name.capitalize %> member(s)</p>
+            <div id="ngo-members" class="mb-3">
               <% @ngo_members.each do |ngo_member| %>
               <%= render 'admin/ngo_members/ngo_member_item', ngo_member: ngo_member %>
               <% end %>
             </div>
           <% end %>
         </div>
-      <% end %>
+      <%# end %>
   <% if @ngo.user == current_user %>
     <button type="button" class="button" style="font-size:12px" data-toggle="modal" data-target="#ngo-member-modal">
     Add members
