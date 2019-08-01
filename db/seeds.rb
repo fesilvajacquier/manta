@@ -217,7 +217,7 @@ categories = {
     "General Volunteer"
   ],
   "Donate": [
-    "Donate"
+    "Donation"
   ]
 }
 
@@ -279,14 +279,14 @@ pub_7 = Publication.create!(ngo_id: cambia.id,
                     title: '15 footballs',
                     description: 'In school building project of Cambia foundation, we need 15 footballs for students to maintain their healthy lifestlye.',
                     intended_use: '3 months ago, we had build a school outside of Mendoza. There are 100 children that have no education and our mission is to make sure that those children are able to go to school and access their education easier. Hence, we build the school inside the community and help them to be able to go to school and have a brighter future. Having footballs in school will allow them to be relaxed after school or during the break and promote their healthy lifestyle.',
-                    category: Category.find_by(name: "Sportings Goods"),
+                    category: Category.find_by(name: "Sporting Goods"),
                     location: 'Av. del Libertador 4400, M5500 Mendoza, Argentina')
 
 pub_8 = Publication.create!(ngo_id: cambia.id,
                     title: '10,000 dollars',
                     description: 'In Cambia Mendoze project, we are funding the money in order to build a shelter for refugee who have come to Mendoza more than 1,000 people so that they have place to stay and we are able to take care of them',
                     intended_use: 'Having a place to stay is one of the basic needs for human, there are more than 1,000 refugees right now in Mendoza and they have no place to stay. However, we are funding the money in order to build a shelter for them and to make sure that they are safe. Our team will provide them basic needs and we may have some crucial activities in the near future',
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'Av. del Libertador 4400, M5500 Mendoza, Argentina')
 
 pub_9 = Publication.create!(ngo_id: cambia.id,
@@ -300,7 +300,7 @@ pub_10 = Publication.create!(ngo_id: barefoot_college.id,
                     title: '3,000 dollars',
                     description: 'There are 205 homeless dogs in Tucumán. We are planning to build a shelter for them all and make sure that they are safe',
                     intended_use: 'Tucumán is one of the cities that has many dogs along the street. In order to for them to have a palce to stay, we decided to built a shelter. This shelter might be able to decrease the amount of people whom got bitten from street dogs as well.',
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'Congreso de Tucumán 141, T4000IEC San Miguel de Tucumán, Argentina')
 
 pub_11 = Publication.create!(ngo_id: barefoot_college.id,
@@ -320,7 +320,7 @@ pub_13 = Publication.create!(ngo_id: code_for_america.id,
                     title: '5,000 dollars',
                     description: 'We are funding the project to help children learn how to code more and will make sure that they can implement the skill in the future.',
                     intended_use: 'Coding skill is another crucial skill these days. It is another universal language for our new age. This skill not only will help them learn how to build thing on the system, but also help them having a structure thought. This skill will enhance their thinking process and learning skill',
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'España 558, A4400 Salta, Argentina')
 
 pub_14 = Publication.create!(ngo_id: code_for_america.id,
@@ -350,7 +350,7 @@ pub_17 = Publication.create!(ngo_id: human_rights_watch.id,
                     title: '4,200 dollars',
                     description: 'Posadas Flood Relief Fund, More than a million people effected by severe flooding. Recent floods in Posadas killed 64 people.',
                     intended_use: 'This fund will provide relief to survivors in the form of emergency supplies like food, water and medicine. In addition to longer-term recovery assistance to help residents recover and rebuild. All donations to this fund will exclusively support flood and monsoon relief and recovery efforts throughtout the region',
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'Av. Roque Perez, Posadas, Argentina')
 
 pub_18 = Publication.create!(ngo_id: human_rights_watch.id,
@@ -364,14 +364,14 @@ pub_19 = Publication.create!(ngo_id: care_international.id,
                    title: 'Sport apparel and footwear',
                     description: 'we want to give all kids the lifelong benefits of sport and physical activity by providing equipment, apparel and footwear to those most in need.',
                     intended_use: 'We are promoting all kids to have a healthy lifestyle. In the project, we will donate all of Sportings Goods in rural area of Argentina.',
-                    category: Category.find_by(name: "Sportings Goods"),
+                    category: Category.find_by(name: "Sporting Goods"),
                     location: 'Pelagio B. Luna 811, F5300 La Rioja, Argentina')
 
 pub_20 = Publication.create!(ngo_id: care_international.id,
                     title: '2,400 dollars',
                     description: 'The care international sends donated medical supplies to people who need it in Argentina. This project will buy new wigs, walking aids and weelchairs.',
                     intended_use: 'The project will send medical supplies to people who needed. We will connect with the hospital and select people according to the criteria we have. If you want to know the further information, you can contact us in the profile.',
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'Pelagio B. Luna 811, F5300 La Rioja, Argentina')
 
 pub_21 = Publication.create!(ngo_id: care_international.id,
@@ -392,7 +392,7 @@ pub_23 = Publication.create!(ngo_id: aflatoun.id,
                     title: '14,000 dollars',
                     description: 'In Argentina, some children come from poor families. Girls are at the greatest risk of dropping out. Four-year leadership development program for primary school and secondary girls studying in the informal schools in Argentina. This project will target girls, who are most at risk due to academic challenges, and provide them with holistic support daily after school.',
                     intended_use: " Only 45 percents of girls attend school. Scholarship programs understandably, target the brightest and the best. But this means that girls under-performing in school, often through no fault of their own, find their only options are child marriage, prostitution or sexual exploitation. Child marriage accounts for 5 percents of primary school dropouts and child pregnancy for a horrifying 40%. Child pregnancy has appalling mother and baby mortality rates",
-                    category: Category.find_by(name: "Donate"),
+                    category: Category.find_by(name: "Donation"),
                     location: 'Paseo Jesús de Galindez 0, B7600 Mar del Plata, Buenos Aires')
 
 pub_24 = Publication.create!(ngo_id: aflatoun.id,
