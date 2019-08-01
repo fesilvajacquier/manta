@@ -1,6 +1,5 @@
 <div class="container my-5">
-  <h2 class="text-center">Publications</h2>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-3 px-4">
       <%= simple_form_for :publication, url: publications_path, method: :get do |f| %>
       <% if params[:search] %>
@@ -15,27 +14,41 @@
           collection: @categories,
           group_method: :children
       %>
-      <%= f.button :submit, 'Filter', class: "btn btn-success"%>
+      <%= f.button :submit, 'Filter', class: "button"%>
       <% end %>
     </div>
     <div class="col-9">
       <% @publications.each do |pub| %>
         <%= link_to publication_path(pub) do  %>
-          <div class="card-product mt-3">
-            <div style="height:100%;width:120px;">
-              Picture placeholder
-              <% if pub.pictures.empty? %>
-                <%# cl_image_tag Picture.find_by(imageable_type: 'Ngo', imageable_id: pub.ngo.id, category: 'logo').picture %>
-              <% else %>
-                <%# cl_image_tag pub.pictures.first.picture %>
-              <% end %>
+          <div class="card-product pl-2 mt-3 <%= case pub.category.parent.name
+                                          when 'Donate' then 'top-clean'
+                                          when 'Goods' then 'top-butter'
+                                          when 'Services' then 'top-salmon'
+                                          end
+                                           %> link">
+            <div>
+                <% if pub.pictures.reject { |p| p.category == 'closing' }.empty? %>
+                  <div class="align-items-center justify-content-center d-flex" style="width: 120px; height: 100%;">
+                    <%= cl_image_tag(Picture
+                    .find_by(imageable_type: 'Ngo', imageable_id: pub.ngo.id, category: 'logo')
+                    .picture,width: 120, height: 120, crop: 'fit') %>
+                  </div>
+                <% else %>
+                   <div class="align-items-center justify-content-center d-flex" style="width: 120px; height: 100%;">
+                    <%= cl_image_tag(Picture
+                    .find_by(imageable_type: 'Publication', imageable_id: pub.pictures.first.id)
+                    .picture, width: 120, height: 120, crop: 'fit') %>
+                  </div>
+                <% end %>
             </div>
-            <div class="card-product-infos">
+            <div class="card-product-infos" style="max-width: 600px">
               <h2><%= pub.title %></h2>
               <p><%= pub.description[0..150]%>...</p>
             </div>
             <div class="card-product-infos">
-              <p> <%= pub.category.name %></p>
+              <div class="tag-category">
+              <p class="text-center"> <%= pub.category.name %></p>
+              </div>
               <% if pub.offers.empty? %>
                 <small>Be the fist one to help this amazing people</small>
               <% else %>
