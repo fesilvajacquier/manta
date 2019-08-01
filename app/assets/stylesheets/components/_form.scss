@@ -69,3 +69,31 @@
 abbr[title="required"] {
   display: none;
 }
+
+.put-center {
+  width: 100%;
+  text-align: center;
+}
+
+.separation {
+  height: 1px;
+  width: 80%;
+  background-color: rgba(0,0,0,0.3);
+  margin: 15px auto;
+  position: relative;
+}
+
+.separation-text {
+  position: absolute;
+  left: 46%;
+  top: -10px;
+  background-color: white;
+  padding: 0 8px;
+}
+
+.link-text {
+  color: rgba(0,0,0,0.5);
+  &:hover {
+    color: #874c62
+  }
+}
