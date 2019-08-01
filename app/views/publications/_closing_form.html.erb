@@ -17,7 +17,7 @@
             <%= pf.input :imageable_type, as: :hidden, input_html: { value: publication.class }  %>
             <%= pf.input :category, as: :hidden, input_html: { value: 'closing' } %>
           <% end %>
-          <%= f.submit 'Upload evidence', id: 'closingSubmit'%>
+          <%= f.submit 'Upload evidence',class:'button', id: 'closingSubmit'%>
         <% end %>
       </div>
     </div>

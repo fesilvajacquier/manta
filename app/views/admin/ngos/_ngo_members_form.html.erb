@@ -1,4 +1,4 @@
 <%= simple_form_for([:admin, ngo, ngo_member], remote: true) do |form| %>
   <%= form.input :user_id, label: :user, collection: User.all.map { |u| [u.email, u.id] } %>
-  <%= form.submit class: "btn btn-success btn-lg"%>
+  <%= form.submit class: "button"%>
 <% end %>

@@ -78,7 +78,7 @@ abbr[title="required"] {
 .separation {
   height: 1px;
   width: 80%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.1);
   margin: 15px auto;
   position: relative;
 }
@@ -92,8 +92,17 @@ abbr[title="required"] {
 }
 
 .link-text {
-  color: rgba(0,0,0,0.5);
+  color:#874c62 ;
   &:hover {
-    color: #874c62
+    color: rgba(0,0,0,0.7);
   }
+}
+
+.text-box {
+  height: 40px;
+  width: 80%;
+  background-color: rgba(0,0,0,0.3);
+  margin: 15px auto;
+  position: relative;
+  border-radius: 4px;
 }
