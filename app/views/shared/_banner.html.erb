@@ -3,15 +3,14 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="d-block w-100 banner-img word" style="background-image:url('https://dg.imgix.net/helping-each-other-endure-to-the-end-hqhzi4xb-en/landscape/helping-each-other-endure-to-the-end-hqhzi4xb-55aaaa03a5f07da29b107f6068d7722e.jpg?ts=1515906661&ixlib=rails-3.0.2&auto=format%2Ccompress&fit=min&w=800&h=450&dpr=2&ch=Width%2CDPR');">
-        <h2>WE CAN HELP</h2>
+      <div class="d-block w-100 banner-img word" style="background-image:url(<%= asset_path('banner_1') %>);">
       </div>
     </div>
     <div class="carousel-item">
-      <div class="d-block w-100 banner-img" style="background-image: url('https://i1.wp.com/www.givevolunteers.org/wp-content/uploads/volunteers-jumping-laos-frisket-homepage-3.jpg?ssl=1');"></div>
+      <div class="d-block w-100 banner-img" style="background-image: url(<%= asset_path('banner_2') %>);"></div>
     </div>
     <div class="carousel-item">
-      <div class="d-block w-100 banner-img" style="background-image: url('https://i.pinimg.com/564x/ac/54/70/ac54704231b5cb1736391f02e967ec6e.jpg');"></div>
+      <div class="d-block w-100 banner-img" style="background-image: url(<%= asset_path('banner_3')%>"></div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
