@@ -28,7 +28,7 @@
                           end %>">
   <div class="row">
     <div class="col-sm-12 col-md-4 py-4 d-flex flex-column align-items-center">
-      <% if @publication.pictures.empty? %>
+      <% if @publication.pictures.reject { |p| p.category == 'closing' }.empty? %>
         <div class="align-items-center justify-content-center d-flex" style="width: 300px; height: 365px;">
           <%= cl_image_tag(Picture
           .find_by(imageable_type: 'Ngo', imageable_id: @publication.ngo.id, category: 'logo')
@@ -37,7 +37,7 @@
       <% else %>
         <div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
           <div class="carousel-inner">
-            <% @publication.pictures.each do |pic| %>
+            <% @publication.pictures.reject { |p| p.category == 'closing' }.each do |pic| %>
               <div class="carousel-item active">
                 <%# cl_image_tag pic.picture, class: 'd-block w-100' %>
                 <img class="d-block w-100" src="<%= pic.picture.url %>" alt="Slide pic"> 
@@ -87,43 +87,44 @@
       </p>
       <% if @publication.closing_text %>
         <h3 class="sub-header">Closing</h3>
-        <div class="d-flex">
+        <div class="text-center">
           <%= cl_image_tag Picture.find_by(imageable_type: @publication.class.to_s, imageable_id: @publication.id, category: 'closing').picture, width: 400, height: 300, crop: :fit %>
-          <div>
-            <h5>Closing evidence description</h5>
-            <p>
-              <%= @publication.closing_text %>
-            </p>
-          </div>
         </div>
-      <% end %>
-      <% if @publication.ngo.is_stakeholder?(current_user) %>
-        <div class="my-5">
-          <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#closingModal-<%= @publication.id%>">
-            Upload evidence
-          </button>
-        </div>
-        <%= render 'publications/closing_form', publication: @publication, picture: @picture %>
+        <h5>Closing evidence description</h5>
+        <p>
+          <%= @publication.closing_text %>
+        </p>
       <% else %>
-        <div class="my-5">
-          <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#offerModal">
-            I can help!
-          </button>
-        </div>
-      <% end %>
-      <hr>
-      <h5 class="sub-header">Other publications by this NGO</h3>
-      <ul>
-        <% @publication.ngo.publications.last(5).each do |pub| %>
-          <li>
-            <strong><%= link_to pub.title, pub, class: 'link' %></strong>
-          </li>
+        <% if @publication.ngo.is_stakeholder?(current_user) %>
+          <div class="my-5">
+            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#closingModal-<%= @publication.id%>">
+              Upload evidence
+            </button>
+          </div>
+          <%= render 'publications/closing_form', publication: @publication, picture: @picture %>
+        <% else %>
+          <div class="my-5">
+            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#offerModal">
+              I can help!
+            </button>
+          </div>
         <% end %>
-      </ul>
+      <% end %>
+      <% if @publication.ngo.publications.count > 1 %>
+        <hr>
+        <h5 class="sub-header">Other publications by <%= @publication.ngo.name.capitalize %></h3>
+        <ul>
+          <% @publication.ngo.publications.reject { |p| p.id == @publication.id }.last(5).each do |pub| %>
+            <li>
+              <strong><%= link_to pub.title, pub, class: 'link' %></strong>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
       <hr>
       <h5 class="sub-header">Other publications in this category</h3>
       <ul>
-        <% @publication.category.publications.last(5).each do |pub| %>
+        <% @publication.category.publications.reject { |p| p.id == @publication.id }.last(5).each do |pub| %>
           <li>
             <strong><%= link_to pub.title, pub, class: 'link' %></strong> posted by <strong><%= link_to pub.ngo.name, pub.ngo %></strong>
           </li>
