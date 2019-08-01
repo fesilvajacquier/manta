@@ -24,7 +24,6 @@
     color: rgba(0,0,0,0.8) !important;
   }
   color: rgba(0,0,0,0.8) !important;
-  text-decoration: none;
 }
 
 .offer_information {
@@ -78,6 +77,10 @@
   i {
     padding: 0 10px;
   }
+}
+
+.offer-search-input:focus {
+  outline: none;
 }
 
 .offer_date {

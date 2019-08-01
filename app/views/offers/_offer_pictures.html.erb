@@ -17,7 +17,7 @@
     </div>
     <div class="tab-pane fade" id="pills-offer-pictures" role="tabpanel" aria-labelledby="pills-offer-pictures-tab">
       <div class="text-center">
-        <div class="mb-3" style="width: 300px; height: 365px; border: 2px black solid;">
+        <div class="mb-3" style="width: 200px; height: 200px; border: 2px black solid;">
           <% unless @offer.pictures.empty? %>
             <%= cl_image_tag @offer.pictures.first.picture, crop: :fill %>
           <% end %>

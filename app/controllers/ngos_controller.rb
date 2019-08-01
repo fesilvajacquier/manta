@@ -38,6 +38,7 @@ class NgosController < ApplicationController
     # raise
     @ngo = Ngo.new(ngo_params)
     @ngo.pictures.first.imageable_id = 1
+    @ngo.pictures.first.category = 'logo'
     @ngo.user = current_user
     authorize @ngo
     if @ngo.save

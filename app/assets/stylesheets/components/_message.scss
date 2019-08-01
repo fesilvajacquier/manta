@@ -4,8 +4,10 @@
   position: relative;
   height: 100%;
   width: 400px;
+  .chat-status{
+
+  }
   .chat-box {
-    padding: 1.5em;
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -13,27 +15,43 @@
     border-top: 1px solid rgba(0,0,0,0.1);
     background-color: white;
     .chat-bubble-wrapper {
+      padding: 20px 15px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.2);
+      .change {
+        margin-top: 20px;
+      }
+      &.me {
+        padding-bottom: 15px;
+      }
+      &.him {
+        margin-top: 20px;
+        padding-bottom: 15px;
+      }
       .chat-timestamp {
-        &.him {
-          font-size: 12px !important;
-          margin-top: 13px;
-        }
+          font-size: 12px;
+          font-weight: lighter;
+          color: rgba(0,0,0,0.6);
       }
       .chat-bubble {
-        }
-        &.him {
         }
         &.parking-share {
         }
         .chat-username {
-          margin-right: 8px;
-          margin-top: 9px;
+          font-size: 14px;
+          font-weight: bold;
+          padding-right: 5px;
         }
       }
     }
   }
   .chat-message {
-    margin-left: 39px;
+    white-space: pre-wrap;
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+    color: rgba(0,0,0,0.7);
   }
 
     #chat-form {

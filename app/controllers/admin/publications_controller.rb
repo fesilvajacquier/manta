@@ -12,11 +12,15 @@ class Admin::PublicationsController < ApplicationController
 
   def create
     @publication = Publication.new(publication_params)
-    @publication.pictures.first.imageable_id = 1
+    if @publication.pictures.last.picture.file.nil?
+      @publication.pictures.first.destroy
+    else
+      @publication.pictures.first.imageable_id = 1
+    end
     @publication.ngo = @ngo
     authorize([:admin, @publication])
     if @publication.save
-      redirect_to admin_ngo_path(@ngo)
+      redirect_to @publication
     else
       render :new
     end

@@ -10,7 +10,7 @@
     group_method: :children,
     input_html: {class:"input_field"}%>
  <%= f.simple_fields_for :pictures do |pf| %>
-   <%= pf.input :picture, as: :file %>
+   <%= pf.input :picture, as: :file, required: false %>
    <%= pf.input :picture_cache, as: :hidden %>
    <%= pf.input :imageable_id, as: :hidden %>
    <%= pf.input :imageable_type, as: :hidden %>

@@ -20,8 +20,8 @@
             <div class="offer_img" style="background-image:url('https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2');">
             </div>
             <div class="">
-              <div class="offer_detail">
-                <h4><%= offer.publication.ngo.name.upcase %></h4>
+              <div class="offer_detail pl-3">
+                <h4><%= offer.publication.ngo.name.upcase.truncate(20, separator: " ") %></h4>
                 <p><%= offer.publication.title %></p>
               </div>
               <div class="offer_date">

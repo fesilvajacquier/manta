@@ -11,7 +11,7 @@
         <%= simple_form_for [:admin, publication] do |f| %>
           <%= f.input :closing_text %>
           <%= f.simple_fields_for :pictures, picture do |pf| %>
-            <%= pf.input :picture, as: :file %>
+            <%= pf.input :picture, as: :file, required: true %>
             <%= pf.input :picture_cache, as: :hidden %>
             <%= pf.input :imageable_id, as: :hidden, input_html: { value: publication.id }  %>
             <%= pf.input :imageable_type, as: :hidden, input_html: { value: publication.class }  %>

@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Manta">
+    <meta property="og:image" content="og.png">
+    <meta property="og:description" content="Manta plataform help on a trusty way">
+    <meta property="og:site_name" content="Manta"/>
     <title>Manta</title>
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
     <% if content_for?(:meta_og) %>
       <%= yield :meta_og %>
     <% else %>
@@ -17,6 +21,8 @@
     <% end %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+    <link href=’https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel=‘stylesheet’ />
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
   </head>
   <body>
