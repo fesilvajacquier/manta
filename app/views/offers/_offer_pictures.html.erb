@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="tab-pane fade" id="pills-offer-pictures" role="tabpanel" aria-labelledby="pills-offer-pictures-tab">
-      <div class="text-center">
+      <div class="text-center d-flex flex-column justify-content-between" id='offer-picture-container'>
         <div class="mb-3">
           <% if @offer.pictures.empty? %>
             <p>This offer has no pictures yet!</p>
@@ -30,7 +30,7 @@
                 <% else %>
                   <div class="carousel-item">
                 <% end %>
-                    <%= cl_image_tag pic.picture, width: 300, height: 365, crop: 'fit', class: "d-block" %>
+                    <%= cl_image_tag pic.picture, width: 300, height: 365, crop: 'fit', class: "text-center" %>
                   </div>
                 <% end %>
               </div>
