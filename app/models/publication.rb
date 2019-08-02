@@ -12,7 +12,7 @@ class Publication < ApplicationRecord
   has_many :pictures, as: :imageable
   
   validates :ngo_id, :title, :description, :intended_use, :category_id, :location, presence: true
-  validates :description, :intended_use, length: { minimum: 100 }
+  validates :description, :intended_use, length: { minimum: 10 }
   
   geocoded_by :location
   accepts_nested_attributes_for :pictures

@@ -22,7 +22,7 @@ const closingSubmit = () => {
 }
 
 const validate = (closingPubForm) => {
-  const condition1 = closingPubForm[3].value.length >= 140;
+  const condition1 = closingPubForm[3].value.length >= 10;
   const condition2 = closingPubForm[4].value.length > 0;
   if (condition1 && condition2) {
     return true
