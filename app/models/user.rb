@@ -56,34 +56,29 @@ class User < ApplicationRecord
   end
 
   def identifier
-    # if (first_name).nil?
-    email
-    # else
-    #   return "#{first_name.capitalize}"
-    # end
+    full_name
   end
 
   def full_name
-    if first_name.nil?
-      identifier
+    if first_name.nil? && last_name.nil?
+      email
+    elsif !first_name.nil? && last_name.nil?
+      first_name
+    elsif first_name.nil? && !last_name.nil?
+      last_name
     else
-      return "#{first_name.capitalize} #{first_name.capitalize}"
+      return "#{first_name.capitalize} #{last_name.capitalize}"
     end
   end
 
-  # def last_offer
-  #   last_offers = []
-  #   last_offers += offers_as_donor.last
-  #   last_offers += offers_as_owner.last
-  #   last_offers += offers_as_collaborator.last
-  #   unless last_offer.empty?
-  #     last_offers.max_by do |offer|
-  #       offer.created_at
-  #     end
-  #   else
-  #     nil
-  #   end
-  # end
+  def last_offer
+    offers = []
+    offers << offers_as_donor.last if !offers_as_donor.last.nil?
+    offers << offers_as_owner.last if !offers_as_owner.last.nil?
+    offers << offers_as_collaborator.last if !offers_as_collaborator.last.nil?
+    
+    return offers.sort_by { |offer| offer.created_at }.last
+  end
 
   private
 
