@@ -20,7 +20,7 @@ class OffersController < ApplicationController
     @offer.publication = @publication
     authorize @offer
     if @offer.save
-      redirect_to offers_path
+      redirect_to @offer
     end
   end
 end
