@@ -39,6 +39,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.token = auth.credentials.token
       user.email = auth.info.email
+      user.avatar = "https://avatars0.githubusercontent.com/u/18401014?s=460&v=4"
       user.expires = auth.credentials.expires
       user.expires_at = Time.now + 30.days
       user.refresh_token = auth.credentials.refresh_token
