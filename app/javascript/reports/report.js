@@ -34,7 +34,7 @@ const reportSubmit = () => {
 const validate = (newReport) => {
   const   reportCategories = ['Scam', 'Spam', 'Hate speech or symbols', 'Violence or threat of violence', 'Harassment or bullying', 'Sale or promote', 'Nudity or pornography'];
   const condition1 = reportCategories.includes(newReport[3].value);
-  const condition2 = newReport[4].value.length >= 140;
+  const condition2 = newReport[4].value.length >= 10;
   if (condition1 && condition2) {
     return true
   } else {
